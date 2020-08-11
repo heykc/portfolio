@@ -4,7 +4,8 @@ let nav = document.querySelector(".nav .container");
 let hamburger = document.querySelector(".nav .ham");
 
 hamburger.addEventListener('click', () => {
-  nav.classList.toggle("expanded")
+  nav.classList.toggle("expanded");
+  nav.querySelector(".row").classList.toggle("c");
 })
 
 window.addEventListener("scroll", function (e) {

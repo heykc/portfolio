@@ -1,0 +1,266 @@
+@use 'colors';
+@use 'breakpoints';
+@use 'fonts';
+
+%fill-space {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  @extend %fill-space;
+}
+
+#root {
+  @extend %fill-space;
+  display: flex;
+  justify-content: center;
+  background-color: rgba($color: colors.$blk, $alpha: 0.05);
+}
+
+#content {
+  padding-top:59px;
+  margin:0 10px;
+  @media (min-width: breakpoints.$md) {
+    margin:0;
+  }
+}
+
+.row{
+  display: flex;
+  &.c {
+    flex-direction: column;
+  }
+  &.r {
+    flex-direction: row;
+  }
+  &.jc-start {
+    justify-content: flex-start;
+  }
+  &.jc-center {
+    justify-content: center;
+  }
+  &.ai-start {
+    align-items: flex-start;
+  }
+  &.ai-center {
+    align-items: center;
+  }
+}
+
+.col {
+  &.g1 {
+    flex-grow: 1
+  }
+  &.g2 {
+    flex-grow: 2
+  }
+  &.g3 {
+    flex-grow: 3
+  }
+  &.g4 {
+    flex-grow: 4
+  }
+  &.g5 {
+    flex-grow: 5
+  }
+  &.g6 {
+    flex-grow: 6
+  }
+  &.s1 {
+    flex-shrink: 1
+  }
+  &.s2 {
+    flex-shrink: 2
+  }
+  &.s3 {
+    flex-shrink: 3
+  }
+  &.s4 {
+    flex-shrink: 4
+  }
+  &.s5 {
+    flex-shrink: 5
+  }
+  &.s6 {
+    flex-shrink: 6
+  }
+}
+
+#front-page {
+  @extend %fill-space;
+  overflow: hidden;
+  position: relative;
+
+  .bar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 28vh;
+    width: 100vw;
+    background-color: colors.$pri;
+    margin-right: -100vw;
+    transition: margin-right 0.8s 0s ease-in-out, transform 0.2s;
+  }
+
+  .intro {
+    position: absolute;
+    bottom: 24vh;
+    right: 10px;
+    width: 100vw;
+    font-size: 20vw;
+    text-align: right;
+    font-family: "Montserrat";
+    font-weight: bold;
+    color: var(--blk-c);
+    transition: bottom 0.2s, font-size 0.2s, transform 0.2s;
+
+    @media (min-width: breakpoints.$lg) {
+      bottom: 21vh;
+      right: 0;
+      left: auto;
+      font-size: 15rem;
+    }
+  }
+
+  .hey {
+    position: absolute;
+    bottom: 23vh;
+    left: -7vw;
+    width: 100vw;
+    font-size: 60vw;
+    color: colors.$pri-li;
+    font-family: fonts.$mont-fam;
+    font-weight: bold;
+    transition: bottom 0.2s, font-size 0.2s, transform 0.2s;
+
+    div {
+      transform: rotate(-8deg);
+    }
+
+    @media (min-width: breakpoints.$lg) {
+      bottom: 10vh;
+    }
+  }
+}
+
+.container {
+  max-width: breakpoints.$md;
+  width: 100%;
+
+  &.sm {
+    max-width: breakpoints.$sm;
+  }
+  &.md {
+    max-width: breakpoints.$md;
+  }
+  &.lg {
+    max-width: breakpoints.$lg;
+  }
+}
+
+
+
+.paper {
+  background-color: colors.$wht;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: colors.$pri;
+  box-shadow: 0 3px 5px rgba($color: #000000, $alpha: 0.2);
+  color: white;
+  padding: 12px 8px;
+  box-sizing: border-box;
+
+  .item {
+    margin: 0 10px;
+    color: white;
+  }
+
+  .title {
+    font-family: fonts.$mont-fam;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+    font-kerning: normal;
+    word-spacing: -0.1rem;
+    flex: none;
+  }
+
+  .ham {
+    flex: none;
+    width: 50px;
+    stroke-width: 2.5;
+    position: relative;
+    top: -4px;
+    @media (min-width: breakpoints.$sm) {
+      display: none;
+    }
+  }
+
+  .links {
+    font-family: fonts.$mont-fam;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    display: none;
+    @media (min-width: breakpoints.$sm) {
+      display: flex;
+    }
+
+    .link {
+      margin: 0 10px;
+      padding: 10px 5px;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+
+  .expanded {
+    @media (max-width: breakpoints.$sm) {
+      .links {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 20px;
+
+        .link {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  width: 100%;
+  min-height: 300px;
+  height: auto !important;
+  border-radius: 8px;
+  margin: 50px 0;
+  // border: 1px solid rgba($color: colors.$blk, $alpha: 0.08);
+  box-sizing:border-box;
+}
+
+
+.avatar {
+  &.bg {
+    
+  }
+}

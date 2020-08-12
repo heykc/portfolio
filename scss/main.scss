@@ -159,7 +159,11 @@ p {
       }
 
       &:hover {
-        color: colors.$creme;
+        color: colors.$crema;
+      }
+
+      &:active {
+        color: colors.$info;
       }
     }
   }

@@ -1,0 +1,120 @@
+@use 'colors';
+@use 'breakpoints';
+@use 'fonts';
+
+.hero {
+  padding: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  transition: margin-bottom .25s .1s ease-out, 
+    height .25s .1s ease-out;
+
+  &.blue {
+    background-color: colors.$info-li;
+  }
+  &.red {
+    background-color: colors.$no-li;
+  }
+  &.gold {
+    background-color: colors.$warn-li;
+  }
+  &.green {
+    background-color: colors.$yes-li;
+  }
+  
+  .sec {
+    box-sizing: border-box;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+
+    img {
+      width: 30%;
+    }
+  }
+
+  &.rev{
+    flex-direction: column;
+    .pop {
+      padding:0;
+    }
+  }
+  .pop {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 0;
+  }
+  
+  .box {
+    background-color: colors.$paper;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 2rem;
+    box-shadow: none;
+    border-radius: 0 0 8px 8px;
+    transition: height .25s .1s ease-out,
+      padding .25s .1s ease-out;
+  }
+
+  @media (min-width: breakpoints.$sm) {
+    margin-bottom: 6rem;
+    flex-direction: row;
+    &.rev{
+      flex-direction: row-reverse;
+      .box {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+    .box {
+      border-radius: 0 8px 8px 0;
+    }
+  }
+  @media (min-width: breakpoints.$md) {
+    margin-bottom: 10rem;
+    padding:25px;
+    flex-direction: row;
+    .pop {
+      padding-right:7%;
+    }
+    .box {
+      margin-top: -4rem;
+      border-radius: 8px;
+      box-shadow: 1px 3px 8px rgba($color: colors.$black, $alpha: .1);
+      padding: 4rem;
+    }
+    &.rev{
+      flex-direction: row-reverse;
+      .pop {
+        padding-right: 0;
+        padding-left: 7%;
+      }
+      .box {
+        border-radius: 8px;
+      }
+    }
+  }
+
+  // @media (min-width: breakpoints.$xs) {
+  //   flex-direction: column;
+  //   padding: 0;
+  //   .pop {
+  //     padding: 0;
+  //   }
+  //   .box {
+  //     box-shadow: none;
+  //     padding: 2rem;
+  //   }
+  //   &.rev{
+  //     flex-direction: column;
+  //     .pop {
+  //       padding:0;
+  //     }
+  //   }
+  // }
+}

@@ -7,12 +7,25 @@ $no: #E13936;
 $warn: #F2AE40;
 $info: #42979E;
 
+$yes-li: #73D486;
+$no-li: #E56E61;
+$warn-li: #FFB338;
+$info-li: #6FBCC3;
+
 $yes-dk: #37A142;
 $no-dk: #D33422;
 $warn-dk: #EF9D1A;
 $info-dk: #306D73;
 
-$yes-li: #73D486;
-$no-li: #E56E61;
-$warn-li: #FFB338;
-$info-li: #6FBCC3;
+$black-8: rgba($color: $black, $alpha: 0.8);
+$black-6: rgba($color: $black, $alpha: 0.6);
+$black-4: rgba($color: $black, $alpha: 0.4);
+
+$white-8: rgba($color: $white, $alpha: 0.8);
+$white-6: rgba($color: $white, $alpha: 0.6);
+$white-4: rgba($color: $white, $alpha: 0.4);
+
+$paper: #FFFFFF;
+$paper-8: rgba($color: $paper, $alpha: 0.8);
+$paper-6: rgba($color: $paper, $alpha: 0.6);
+$paper-4: rgba($color: $paper, $alpha: 0.4);

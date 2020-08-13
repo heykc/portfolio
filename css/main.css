@@ -179,7 +179,7 @@ h6 {
   transition: margin-top 0.25s 0.1s ease-out, opacity 0.25s 0.1s ease-out, background-color 0.25s 0.1s ease-out, box-shadow 0.25s 0.1s ease-out;
 }
 .nav.bg {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 2px 4px rgba(41, 31, 30, 0.1);
 }
 .nav.show {

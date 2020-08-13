@@ -1,21 +1,35 @@
+const nav = document.querySelector("#nav");
+const scroll = {
+  pos: window.pageYOffset || document.documentElement.scrollTop,
+  isScrolling: false,
+};
 
-let nav = document.querySelector(".nav .container");
+nav.classList.add("show");
 
-let hamburger = document.querySelector(".nav .ham");
+function checkScroll() {
+  showNav();
+}
 
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle("expanded");
-  nav.querySelector(".row").classList.toggle("c");
-})
-
-window.addEventListener("scroll", function (e) {
-  const targets = document.querySelectorAll(".para");
-
-  for (const t of targets) {
-    const offset = e.currentTarget.pageYOffset;
-    const rateY = offset * (+t.dataset.speedY || 0);
-    const rateX = offset * (+t.dataset.speedX || 0);
-    console.log(rateX, rateY);
-    t.style.transform = `translate3d(${rateX}px, ${rateY}px, 0px)`;
+function showNav() {
+  const cur = window.pageYOffset || document.documentElement.scrollTop;
+  console.log(cur)
+  if (cur > 0 )
+    nav.classList.add('bg');
+  else
+    nav.classList.remove('bg');
+    
+  if (cur <= scroll.pos) {
+    console.log("going up!")
+    if (!nav.classList.contains('show'))
+    nav.classList.add('show')
   }
-});
+  else {
+    console.log("going down!")
+    if (nav.classList.contains('show'))
+    nav.classList.remove('show')
+
+  }
+  scroll.pos = cur <= 0 ? 0 : cur;
+}
+
+window.addEventListener("scroll", checkScroll, false);

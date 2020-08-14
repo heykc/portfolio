@@ -9,7 +9,8 @@
   margin-top: -3rem;
   width: 100%;
   color: colors.$black;
-  display: none;
+  display: flex;
+  justify-content: flex-start;
   z-index: 99;
   transition: margin-top .25s .1s ease-out, 
     opacity .25s .1s ease-out,
@@ -17,21 +18,38 @@
     box-shadow .25s .1s ease-out;
   
   &.bg {
-    background-color: colors.$paper-6;
-    box-shadow: 0 2px 4px rgba($color: colors.$black, $alpha: .1);
+    background-color: colors.$paper-8;
+    box-shadow: 0 2px 4px rgba($color: colors.$black, $alpha: .05);
   }
   &.show {
     margin-top: 0;
     opacity: 1;
+  }
+  &.gutters {
+      padding:0;
+      @media (min-width: breakpoints.$sm + 120px) {
+        padding: 0 60px;
+      }
+      @media (min-width: breakpoints.$md + 180px) {
+        padding: 0 90px;
+      }
   }
   .title, .link {
     font-family: fonts.$cong-fam;
     font-weight: 900;
     font-size: 2rem;
   }
+
+  .ham {
+    width: 60px;
+    svg {
+      stroke-width: 2;
+      stroke: colors.$black;
+    }
+  }
   
   .links {
-    justify-content: space-between;
+    display: none;
   }
   
   .link {
@@ -39,26 +57,17 @@
     font-weight: 700;
     margin: 10px;
 
-    // &:first-child {
-    //   margin-left: 0;
-    // }
-    // &:last-child {
-    //   margin-right: 0;
-    // }
-
     a {
       color: inherit;
       text-decoration: none;
       border-width: 0;
       transition: color .2s ease-out;
-      &:visited, &:active {
+      &:visited, &:active, &:focus {
         color: inherit;
       }
-
       &:hover {
         color: colors.$crema;
       }
-
       &:active {
         color: colors.$info;
       }
@@ -66,7 +75,10 @@
   }
 
   @media (min-width: breakpoints.$sm) {
-    display:flex;
+    .links {
+      justify-content: flex-end;
+      display:flex;
+    }
   }
 
 }

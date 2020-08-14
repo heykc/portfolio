@@ -12,22 +12,18 @@ function checkScroll() {
 
 function showNav() {
   const cur = window.pageYOffset || document.documentElement.scrollTop;
-  console.log(cur)
   if (cur > 0 )
     nav.classList.add('bg');
   else
     nav.classList.remove('bg');
     
   if (cur <= scroll.pos) {
-    console.log("going up!")
     if (!nav.classList.contains('show'))
     nav.classList.add('show')
   }
   else {
-    console.log("going down!")
     if (nav.classList.contains('show'))
     nav.classList.remove('show')
-
   }
   scroll.pos = cur <= 0 ? 0 : cur;
 }

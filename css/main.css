@@ -185,10 +185,10 @@ b {
 }
 
 button.standard {
-  text-transform: uppercase;
+  text-transform: capitalize;
   padding: 1rem;
   color: #FFFFFF;
-  font-family: "proxima-nova", sans-serif;
+  font-family: "congenial", sans-serif;
   font-size: 1.3rem;
   letter-spacing: 0.12rem;
   font-weight: 700;
@@ -340,9 +340,27 @@ button.standard:active.info {
   justify-content: center;
   border-radius: 8px 8px 0 0;
   min-height: 200px;
+  padding: 2rem;
 }
 .hero .sec img {
   width: 30%;
+}
+.hero .sec svg {
+  stroke: #000;
+  fill: #000;
+  opacity: 0.4;
+  margin: 2rem;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+@media (min-width: 960px) {
+  .hero .sec svg {
+    max-width: 70%;
+    max-height: 70%;
+    margin: 0;
+  }
 }
 .hero.rev {
   flex-direction: column;
@@ -356,6 +374,7 @@ button.standard:active.info {
   padding: 0;
 }
 .hero .box {
+  min-height: 100%;
   background-color: #FFFFFF;
   box-sizing: border-box;
   padding: 2rem;
@@ -429,6 +448,14 @@ button.standard:active.info {
   }
   .hero.rev .box {
     border-radius: 8px;
+  }
+}
+@media (min-width: 960px) and (min-width: 1280px) {
+  .hero .sec {
+    flex: 4;
+  }
+  .hero .sec svg {
+    max-width: 40%;
   }
 }
 

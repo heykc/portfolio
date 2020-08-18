@@ -76,12 +76,6 @@ b {
 #root {
   @extend %fill-space;
 }
-
-#content {
-  //margin-top: 60px;
-  //padding-top:8rem;
-}
-
 .container {
   width: 100%;
 
@@ -190,10 +184,10 @@ b {
 
 button {
   &.standard {
-    text-transform: uppercase;
+    text-transform: capitalize;
     padding: 1rem;
     color: colors.$paper;
-    font-family: fonts.$prox-fam;
+    font-family: fonts.$cong-fam;
     font-size: 1.3rem;
     letter-spacing: .12rem;
     font-weight: 700;

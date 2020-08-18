@@ -43,6 +43,7 @@
     justify-content: center;
     border-radius: 8px 8px 0 0;
     min-height: 200px;
+    padding: 2rem;
 
     img {
       width: 30%;
@@ -62,6 +63,7 @@
   }
   
   .box {
+    min-height: 100%;
     background-color: colors.$paper;
     box-sizing: border-box;
     padding: 2rem;
@@ -132,6 +134,15 @@
       }
       .box {
         border-radius: 8px;
+      }
+    }
+
+    @media (min-width: breakpoints.$lg) {
+      .sec {
+        flex:4;
+        svg {
+          max-width: 40%;
+        }
       }
     }
   }

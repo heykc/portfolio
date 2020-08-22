@@ -1,3 +1,5 @@
+import loadAnimations from  "../js/utils/animations.js";
+
 const nav = document.querySelector("#nav");
 const scroll = {
   pos: window.pageYOffset || document.documentElement.scrollTop,
@@ -12,7 +14,7 @@ function checkScroll() {
 
 function showNav() {
   const cur = window.pageYOffset || document.documentElement.scrollTop;
-  if (cur > 0 )
+  if (cur > 0 ) 
     nav.classList.add('bg');
   else
     nav.classList.remove('bg');
@@ -29,3 +31,5 @@ function showNav() {
 }
 
 window.addEventListener("scroll", checkScroll, false);
+
+loadAnimations();

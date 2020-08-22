@@ -3,7 +3,7 @@ let dev = { els: {}, anims: {}, isShown: false };
 let hello = { els: {}, anims: {}, isShown: false };
 let coffee = { els: {}, anims: {}, isShown: false };
 let design = { els: {}, anims: {}, isShown: false };
-let burger = { els: {}, anims: {}, isOn: false };
+let burger = { els: {}, anims: {}, isShown: false };
 
 function createObservers(el) {
   let options = {
@@ -17,10 +17,20 @@ function createObservers(el) {
 }
 
 export default function loadAnimations() {
-  document.querySelector("#burger").addEventListener("mouseover", slinkBurger)
-  // document.querySelector(".ham").addEventListener("mouseout", () => burger.isOn = false)
-  document.querySelector("#burger").addEventListener("click", slinkBurger)
   createObservers(".sec");
+
+  document.querySelector("#burger").addEventListener("mouseover", slinkBurger)
+  document.querySelector('.ham').addEventListener("click", openBurger )
+
+  if (window.innerWidth > 720) {
+    document.querySelector("#burger").addEventListener('load',function(e){
+      console.log("loaded burger")
+      if(e.target && e.target.id == "burger") {
+        console.log(e.target)
+        loadBurger();
+      }
+    });
+  }
 
   let doc = getDoc("#dev");
   dev.els = {
@@ -67,14 +77,6 @@ export default function loadAnimations() {
     bar1: doc.querySelector("#bar1"),
     bar2: doc.querySelector("#bar2"),
   }
-  doc = getDoc("#burger")
-  burger.els = {
-    top: doc.querySelector("#top"),
-    // zig: doc.querySelector("#zig"),
-    mid: doc.querySelector("#mid"),
-    // zag: doc.querySelector("#zag"),
-    bot: doc.querySelector("#bot"),
-  }
 
   anime.set(
     [
@@ -88,6 +90,20 @@ export default function loadAnimations() {
     }
   );
 };
+
+function loadBurger() {
+  console.log("loading burger")
+  let doc = getDoc("#burger")
+  if (doc) {
+    doc.querySelector('svg').addEventListener("click", openBurger)
+    burger.els = {
+      top: doc.querySelector("#top"),
+      mid: doc.querySelector("#mid"),
+      mid2: doc.querySelector("#mid2"),
+      bot: doc.querySelector("#bot"),
+    }
+  }
+}
 
 function getDoc(el) {
   let svg = document.querySelector(el);
@@ -579,9 +595,82 @@ let callback = (entries) => {
   console.log(anime.running.length)
 };
 
-function slinkBurger() {
+function openBurger() {
+  if(!burger.isShown) {
+    document.querySelector('.overlay').classList.add("opened")
+    document.querySelector('body').classList.add("no-scroll")
+    console.log("open")
+    burger.isShown = !burger.isShown
+    anime
+    .timeline({
+      begin: () => burger.anims.anim?.reset()
+    })
+    .add({
+      targets: [burger.els.top, burger.els.bot],
+      scaleX: [1,0],
+      duration: 200,
+      easing: 'easeInSine',
+    })
+    .add({
+      targets: [document.querySelector("#burger")],
+      rotate: '1turn',
+      
+      duration: 400,
+    }, 100)
+    .add({
+      targets: [burger.els.mid2],
+      rotate: '40deg',
+      opacity:1,
+      stroke: '#ffffff',
+      duration: 100,
+    }, 0)
+    .add({
+      targets: [burger.els.mid],
+      rotate: '-40deg',
+      scaleX: 1,
+      stroke: '#ffffff',
+      duration: 100,
+      easing: 'easeInSine',
+    }, 0)
+  } else {
+    document.querySelector('.overlay').classList.remove("opened")
+    document.querySelector('body').classList.remove("no-scroll")
+    console.log("close")
+    burger.isShown = !burger.isShown
+    anime
+    .timeline({
+      
+    })
+    .add({
+      targets: [document.querySelector("#burger")],
+      rotate: 0,
+      duration: 400,
+    }, 100)
+    .add({
+      targets: [burger.els.mid],
+      rotate: 0,
+      duration: 100,
+      stroke: '#291F1E',
+      easing: 'easeInSine',
+    }, 0)
+    .add({
+      targets: [burger.els.mid2],
+      rotate: 0,
+      opacity:0,
+      stroke: '#291F1E',
+      duration: 100,
+    }, 200)
+    .add({
+      targets: [burger.els.top, burger.els.bot],
+      scaleX: [0,1],
+      duration: 200,
+      easing: 'easeInSine',
+    }, 200)
+  }
+}
 
-    console.log("animate!")
+function slinkBurger() {
+  if(!burger.isShown){
     if(!burger.anims.anim) {
       burger.anims.anim = anime
       .timeline({
@@ -590,18 +679,23 @@ function slinkBurger() {
       .add({
         targets: [
           burger.els.top, 
-          burger.els.zig, 
+          // burger.els.zig, 
           burger.els.mid, 
-          burger.els.zag, 
+          // burger.els.zag, 
           burger.els.bot
         ],
-        strokeDashoffset: [anime.setDashoffset,0],
-        easing: 'easeOutSine',
-        duration: 100,
-        delay: anime.stagger(100, {from: 'last'}),
+        // strokeDashoffset: [anime.setDashoffset,0],
+        scaleX: [
+          { value: .6 },
+          { value: 1 },
+        ],
+        easing: 'easeInOutSine',
+        duration: 500,
+        delay: anime.stagger(100, {from: 'center'}),
       });
-    } 
+    }
     else if (!burger.anims.anim.began){
       burger.anims.anim.restart()
     }
+  }
 }

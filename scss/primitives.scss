@@ -10,6 +10,18 @@ body {
   background-color: colors.$white;
 }
 
+.no-scroll{
+  overflow: hidden;
+}
+
+.show {
+  display: block;
+}
+
+.no-show {
+  display: none;
+}
+
 .fill {
   height: 100vh;
   display: flex;

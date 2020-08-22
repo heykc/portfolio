@@ -14,6 +14,11 @@
   transition: margin-bottom .25s .1s ease-out, 
     height .25s .1s ease-out;
 
+
+  &:first-child {
+    margin-top:15rem;
+  }
+
   &.blue {
     .sec {
       background-color: colors.$info-li;
@@ -45,8 +50,10 @@
     min-height: 200px;
     padding: 2rem;
 
-    img {
-      width: 30%;
+    object {
+      width:100%;
+      opacity: .8;
+      mix-blend-mode: multiply;
     }
   }
 
@@ -73,15 +80,15 @@
       padding .25s .1s ease-out;
   }
 
-  @media (min-width: breakpoints.$sm) {
+  @media (min-width: breakpoints.$md) {
     margin-bottom: 6rem;
     flex-direction: row;
     .sec{
-      flex:4;
+      flex:3;
       border-radius: 8px 0 0 8px;
     }
     .pop {
-      flex:3;
+      flex:4;
     }
     &.rev{
       flex-direction: row-reverse;
@@ -94,9 +101,10 @@
     }
     .box {
       border-radius: 0 8px 8px 0;
+      padding: 4rem;
     }
   }
-  @media (min-width: breakpoints.$md) {
+  @media (min-width: breakpoints.$lg) {
     margin-bottom: 10rem;
     padding:25px;
     flex-direction: row;
@@ -114,10 +122,10 @@
         background-color: colors.$yes-li;
     }
     .sec {
-      flex:3;
+      flex:5;
     }
     .pop {
-      flex:2;
+      flex:3;
       padding-right:7%;
     }
     .box {
@@ -125,6 +133,7 @@
       border-radius: 8px;
       box-shadow: 1px 3px 8px rgba($color: colors.$black, $alpha: .1);
       padding: 4rem;
+      min-height: auto;
     }
     &.rev{
       flex-direction: row-reverse;

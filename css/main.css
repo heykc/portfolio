@@ -292,6 +292,16 @@ button.standard:active.info {
   left: 6rem;
   z-index: 20;
 }
+.nav .title .link {
+  margin: 10px;
+}
+@media (min-width: 720px) {
+  .nav .title {
+    position: inherit;
+    top: 0;
+    left: 0;
+  }
+}
 .nav .title, .nav .link {
   font-family: "congenial", sans-serif;
   font-weight: 900;
@@ -335,6 +345,9 @@ button.standard:active.info {
 .nav .links {
   display: none;
 }
+.nav .links .link {
+  margin: 10px;
+}
 .nav .links.opened {
   display: block;
   position: fixed;
@@ -358,7 +371,6 @@ button.standard:active.info {
 .nav .link {
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 10px;
 }
 .nav .link a {
   color: inherit;

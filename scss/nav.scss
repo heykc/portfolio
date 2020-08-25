@@ -45,6 +45,16 @@
     top: 3rem;
     left: 6rem;
     z-index: 20;
+
+    .link {
+      margin:10px;
+    }
+    
+    @media (min-width: breakpoints.$md) {
+      position: inherit;
+      top: 0;
+      left: 0;
+    }
   }
   .title, .link {
     font-family: fonts.$cong-fam;
@@ -94,6 +104,10 @@
   .links {
     display: none;
 
+    .link{
+      margin: 10px;
+    }
+
     &.opened {
       display: block;
       position: fixed;
@@ -121,7 +135,6 @@
   .link {
     font-size: 1.5rem;
     font-weight: 700;
-    margin: 10px;
 
     a {
       color: inherit;

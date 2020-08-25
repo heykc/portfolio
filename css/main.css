@@ -286,12 +286,19 @@ button.standard:active.info {
   }
 }
 .nav .title {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 3rem;
+  left: 6rem;
+  z-index: 20;
 }
 .nav .title, .nav .link {
   font-family: "congenial", sans-serif;
   font-weight: 900;
   font-size: 2rem;
+}
+.nav .title.opened, .nav .link.opened {
+  color: #FFFFFF;
 }
 .nav .ham, .nav .overlay {
   position: fixed;
@@ -327,6 +334,26 @@ button.standard:active.info {
 }
 .nav .links {
   display: none;
+}
+.nav .links.opened {
+  display: block;
+  position: fixed;
+  top: 20vh;
+  left: 1rem;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.nav .links.opened div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.nav .links.opened div .link {
+  margin: 2rem;
+  align-items: stretch;
+  color: #F6F4F3;
 }
 .nav .link {
   font-size: 1.5rem;

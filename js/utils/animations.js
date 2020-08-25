@@ -19,18 +19,24 @@ function createObservers(el) {
 export default function loadAnimations() {
   createObservers(".sec");
 
-  document.querySelector("#burger").addEventListener("mouseover", slinkBurger)
-  document.querySelector('.ham').addEventListener("click", openBurger )
+  document.querySelector("#burger").addEventListener("mouseover", () => {
+    loadBurger();
+    slinkBurger();
+  })
+  document.querySelector('#burger').addEventListener("click", () => {
+    loadBurger();
+    openBurger();
+  })
 
-  if (window.innerWidth > 720) {
-    document.querySelector("#burger").addEventListener('load',function(e){
-      console.log("loaded burger")
-      if(e.target && e.target.id == "burger") {
-        console.log(e.target)
-        loadBurger();
-      }
-    });
-  }
+  // if (window.innerWidth > 720) {
+  //   document.querySelector("#burger").addEventListener('load',function(e){
+  //     console.log("loaded burger")
+  //     if(e.target && e.target.id == "burger") {
+  //       console.log(e.target)
+  //       loadBurger();
+  //     }
+  //   });
+  // }
 
   let doc = getDoc("#dev");
   dev.els = {
@@ -598,6 +604,8 @@ let callback = (entries) => {
 function openBurger() {
   if(!burger.isShown) {
     document.querySelector('.overlay').classList.add("opened")
+    document.querySelector('#links').classList.add("opened");
+    document.querySelector('#title').classList.add("opened");
     document.querySelector('body').classList.add("no-scroll")
     console.log("open")
     burger.isShown = !burger.isShown
@@ -634,6 +642,8 @@ function openBurger() {
     }, 0)
   } else {
     document.querySelector('.overlay').classList.remove("opened")
+    document.querySelector('#links').classList.remove("opened");
+    document.querySelector('#title').classList.remove("opened");
     document.querySelector('body').classList.remove("no-scroll")
     console.log("close")
     burger.isShown = !burger.isShown

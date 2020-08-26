@@ -1,4 +1,4 @@
-import loadAnimations from  "../js/utils/animations.js";
+import "../js/utils/animations.js";
 
 const nav = document.querySelector("#nav");
 const scroll = {
@@ -20,16 +20,14 @@ function showNav() {
     nav.classList.remove('bg');
     
   if (cur <= scroll.pos) {
-    if (!nav.classList.contains('show'))
     nav.classList.add('show')
   }
-  else {
-    if (nav.classList.contains('show'))
+  else if (cur <= scroll.pos + 10) {
+    console.log(cur)
+    console.log(scroll.pos)
     nav.classList.remove('show')
   }
   scroll.pos = cur <= 0 ? 0 : cur;
 }
 
 window.addEventListener("scroll", checkScroll, false);
-
-loadAnimations();

@@ -40,6 +40,10 @@ body {
   }
 }
 
+object {
+  opacity: 0;
+}
+
 p {
   font-family: "proxima-nova", sans-serif;
   color: rgba(41, 31, 30, 0.6);
@@ -257,6 +261,7 @@ button.standard:active.info {
   justify-content: flex-start;
   z-index: 99;
   transition: margin-top 0.25s 0.1s ease-out, opacity 0.25s 0.1s ease-out, background-color 0.25s 0.1s ease-out, box-shadow 0.25s 0.1s ease-out;
+  padding: 10px 90px;
 }
 .nav.bg {
   background-color: transparent;
@@ -277,12 +282,12 @@ button.standard:active.info {
 }
 @media (min-width: 660px) {
   .nav.gutters {
-    padding: 0 60px;
+    padding: 10px 60px;
   }
 }
 @media (min-width: 900px) {
   .nav.gutters {
-    padding: 0 90px;
+    padding: 10px 90px;
   }
 }
 .nav .title {
@@ -409,7 +414,7 @@ button.standard:active.info {
   transition: margin-bottom 0.25s 0.1s ease-out, height 0.25s 0.1s ease-out;
 }
 .hero:first-child {
-  margin-top: 15rem;
+  margin-top: 10rem;
 }
 .hero.blue .sec {
   background-color: #6FBCC3;

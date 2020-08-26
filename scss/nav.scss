@@ -16,6 +16,7 @@
     opacity .25s .1s ease-out,
     background-color .25s .1s ease-out,
     box-shadow .25s .1s ease-out;
+  padding: 10px 90px;
   
   &.bg {
     background-color: transparent;
@@ -32,10 +33,10 @@
   &.gutters {
       padding:0;
       @media (min-width: breakpoints.$sm + 120px) {
-        padding: 0 60px;
+        padding: 10px 60px;
       }
       @media (min-width: breakpoints.$md + 180px) {
-        padding: 0 90px;
+        padding: 10px 90px;
       }
   }
 

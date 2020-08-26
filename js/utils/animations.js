@@ -4,6 +4,54 @@ let hello = { els: {}, anims: {}, isShown: false };
 let coffee = { els: {}, anims: {}, isShown: false };
 let design = { els: {}, anims: {}, isShown: false };
 let burger = { els: {}, anims: {}, isShown: false };
+let complete = 0;
+
+document.querySelector("#hello").addEventListener('load',function(e){
+  if(e.target && e.target.id == "hello") {
+    if(getDoc("#hello")) {
+      loadHello();
+    }
+  }
+});
+document.querySelector("#dev").addEventListener('load',function(e){
+  if(e.target && e.target.id == "dev") {
+    if(getDoc("#dev")) {
+      loadDev();
+    }
+  }
+});
+document.querySelector("#design").addEventListener('load',function(e){
+  if(e.target && e.target.id == "design") {
+    if(getDoc("#design")) {
+      loadDesign();
+    }
+  }
+});
+document.querySelector("#coffee").addEventListener('load',function(e){
+  if(e.target && e.target.id == "coffee") {
+    if(getDoc("#coffee")) {
+      loadCoffee();
+    }
+  }
+});
+
+document.querySelector("#burger").addEventListener('load',function(e){
+  if(e.target && e.target.id == "burger") {
+    if(getDoc("#burger")) {
+      loadBurger();
+    }
+  }
+});
+
+window.onload = () => {
+  setTimeout(() => {
+    // loadBurger()
+    loadCoffee()
+    loadDesign()
+    loadDev()
+    loadHello()
+  }, 10)
+}
 
 function createObservers(el) {
   let options = {
@@ -16,28 +64,17 @@ function createObservers(el) {
   targets.forEach((target) => observer.observe(target));
 }
 
-export default function loadAnimations() {
-  createObservers(".sec");
+function loadHello() {
+  let doc = getDoc("#hello");
+  hello.els = {
+    head: doc.querySelector("#hello-head"),
+    hand: doc.querySelector("#hello-hand"),
+  };
+  complete++
+  completeLoad();
+}
 
-  document.querySelector("#burger").addEventListener("mouseover", () => {
-    loadBurger();
-    slinkBurger();
-  })
-  document.querySelector('#burger').addEventListener("click", () => {
-    loadBurger();
-    openBurger();
-  })
-
-  // if (window.innerWidth > 720) {
-  //   document.querySelector("#burger").addEventListener('load',function(e){
-  //     console.log("loaded burger")
-  //     if(e.target && e.target.id == "burger") {
-  //       console.log(e.target)
-  //       loadBurger();
-  //     }
-  //   });
-  // }
-
+function loadDev() {
   let doc = getDoc("#dev");
   dev.els = {
     head: doc.querySelector("#head"),
@@ -55,20 +92,12 @@ export default function loadAnimations() {
     lLash: doc.querySelector("#l-lash"),
     rLash: doc.querySelector("#r-lash"),
   };
-  doc = getDoc("#hello");
-  hello.els = {
-    head: doc.querySelector("#hello-head"),
-    hand: doc.querySelector("#hello-hand"),
-  };
-  doc = getDoc("#coffee");
-  coffee.els = {
-    head: doc.querySelector("#coffee-head"),
-    l1: doc.querySelector("#coffee-l1"),
-    l2: doc.querySelector("#coffee-l2"),
-    r1: doc.querySelector("#coffee-r1"),
-    r2: doc.querySelector("#coffee-r2"),
-  };
-  doc = getDoc("#design");
+  complete++
+  completeLoad();
+}
+
+function loadDesign() {
+  let doc = getDoc("#design");
   design.els = {
     head: doc.querySelector("#head"),
     lBrow: doc.querySelector("#l-brow"),
@@ -83,31 +112,61 @@ export default function loadAnimations() {
     bar1: doc.querySelector("#bar1"),
     bar2: doc.querySelector("#bar2"),
   }
+  complete++
+  completeLoad();
+}
 
-  anime.set(
-    [
-      ...Object.values(hello.els),
-      ...Object.values(dev.els),
-      ...Object.values(coffee.els),
-      ...Object.values(design.els),
-    ],
-    {
-      opacity: 0,
-    }
-  );
-};
+function loadCoffee() {
+  let doc = getDoc("#coffee");
+  coffee.els = {
+    head: doc.querySelector("#coffee-head"),
+    l1: doc.querySelector("#coffee-l1"),
+    l2: doc.querySelector("#coffee-l2"),
+    r1: doc.querySelector("#coffee-r1"),
+    r2: doc.querySelector("#coffee-r2"),
+  };
+  complete++
+  completeLoad();
+}
 
 function loadBurger() {
-  console.log("loading burger")
   let doc = getDoc("#burger")
-  if (doc) {
-    doc.querySelector('svg').addEventListener("click", openBurger)
-    burger.els = {
-      top: doc.querySelector("#top"),
-      mid: doc.querySelector("#mid"),
-      mid2: doc.querySelector("#mid2"),
-      bot: doc.querySelector("#bot"),
-    }
+  doc.querySelector('svg').addEventListener("click", openBurger)
+  document.querySelector("#burger").addEventListener("mouseover", () => {
+    slinkBurger();
+  })
+  document.querySelector('#burger').addEventListener("click", () => {
+    openBurger();
+  })
+  burger.els = {
+    top: doc.querySelector("#top"),
+    mid: doc.querySelector("#mid"),
+    mid2: doc.querySelector("#mid2"),
+    bot: doc.querySelector("#bot"),
+  }
+  complete++;
+  completeLoad();
+}
+
+function completeLoad() {
+  if(complete == 4){
+    createObservers(".sec");
+    document.querySelectorAll('object').forEach(el => {
+      el.style.opacity = el.id == "burger" 
+        ? 1
+        : .6
+    })
+    anime.set(
+      [
+        ...Object.values(hello.els),
+        ...Object.values(dev.els),
+        ...Object.values(coffee.els),
+        ...Object.values(design.els),
+      ],
+      {
+        opacity: 0,
+      }
+    );
   }
 }
 
@@ -598,7 +657,6 @@ let callback = (entries) => {
       }
     }
   });
-  console.log(anime.running.length)
 };
 
 function openBurger() {
@@ -607,7 +665,6 @@ function openBurger() {
     document.querySelector('#links').classList.add("opened");
     document.querySelector('#title').classList.add("opened");
     document.querySelector('body').classList.add("no-scroll")
-    console.log("open")
     burger.isShown = !burger.isShown
     anime
     .timeline({
@@ -645,7 +702,6 @@ function openBurger() {
     document.querySelector('#links').classList.remove("opened");
     document.querySelector('#title').classList.remove("opened");
     document.querySelector('body').classList.remove("no-scroll")
-    console.log("close")
     burger.isShown = !burger.isShown
     anime
     .timeline({

@@ -7,28 +7,28 @@ let burger = { els: {}, anims: {}, isShown: false };
 let complete = 0;
 
 document.querySelector("#hello").addEventListener('load',function(e){
-  if(e.target && e.target.id == "hello") {
+  if(e.target && e.target.id === "hello") {
     if(getDoc("#hello")) {
       loadHello();
     }
   }
 });
 document.querySelector("#dev").addEventListener('load',function(e){
-  if(e.target && e.target.id == "dev") {
+  if(e.target && e.target.id === "dev") {
     if(getDoc("#dev")) {
       loadDev();
     }
   }
 });
 document.querySelector("#design").addEventListener('load',function(e){
-  if(e.target && e.target.id == "design") {
+  if(e.target && e.target.id === "design") {
     if(getDoc("#design")) {
       loadDesign();
     }
   }
 });
 document.querySelector("#coffee").addEventListener('load',function(e){
-  if(e.target && e.target.id == "coffee") {
+  if(e.target && e.target.id === "coffee") {
     if(getDoc("#coffee")) {
       loadCoffee();
     }
@@ -36,7 +36,7 @@ document.querySelector("#coffee").addEventListener('load',function(e){
 });
 
 document.querySelector("#burger").addEventListener('load',function(e){
-  if(e.target && e.target.id == "burger") {
+  if(e.target && e.target.id === "burger") {
     if(getDoc("#burger")) {
       loadBurger();
     }
@@ -149,10 +149,10 @@ function loadBurger() {
 }
 
 function completeLoad() {
-  if(complete == 4){
+  if(complete === 4){
     createObservers(".sec");
     document.querySelectorAll('object').forEach(el => {
-      el.style.opacity = el.id == "burger" 
+      el.style.opacity = el.id === "burger" 
         ? 1
         : .6
     })

@@ -1,4 +1,4 @@
-import "../js/utils/animations.js";
+import "./utils/animations.js";
 
 const nav = document.querySelector("#nav");
 const scroll = {

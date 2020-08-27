@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "project built for personal portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heykc/portfolio.git"
+  },
+  "author": "Keith Charles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heykc/portfolio/issues"
+  },
+  "homepage": "https://github.com/heykc/portfolio#readme",
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

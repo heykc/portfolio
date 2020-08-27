@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Nav from './components/Nav';
 import './css/reset.css';
 import "./css/main.css";
+import Nav from './components/Nav';
+import About from './containers/about';
 
 console.log("testing");
 
 function App() {
   return (
     <>
-    <Nav />
-    <div style={{height: '300vh'}}></div>
+      <Nav />
+      <main id="content" className={"container row center gutters"}>
+        <About />
+      </main>
     </>
   )
 }

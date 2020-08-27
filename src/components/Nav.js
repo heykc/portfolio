@@ -27,7 +27,7 @@ function Nav() {
     <nav id="nav" className={`
       nav row center gutters 
       ${ isShowing ? 'show' : '' } 
-      ${ scroll.pos === 0 ? 'bg' : '' }
+      ${ scroll !== 0 ? 'bg' : '' }
     `}>
       <div className={"container lg row mid"}>
         <div className={"col link"}>
@@ -40,7 +40,7 @@ function Nav() {
             className={"ham"}
             onClick={handleClick}
           >
-            <Burger />
+            <Burger isOpen={isOpen} />
           </button>
         </div>
         <div id="title" className={`

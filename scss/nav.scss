@@ -17,7 +17,8 @@
     background-color .25s .1s ease-out,
     box-shadow .25s .1s ease-out;
   padding: 10px 90px;
-  
+  pointer-events: none;
+
   &.bg {
     background-color: transparent;
     box-shadow: none;
@@ -27,6 +28,7 @@
     }
   }
   &.show {
+    pointer-events: inherit;
     margin-top: 0;
     opacity: 1;
   }

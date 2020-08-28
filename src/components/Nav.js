@@ -4,9 +4,9 @@ import Burger from "../svgs/burger";
 
 
 function Nav() {
-  const [scroll, setScroll] = React.useState(window.pageYOffset || document.documentElement.scrollTop);
   const [isShowing, setShowing] = React.useState(true);
   const [isOpen, setIsOpen] = React.useState(false);
+  let scroll = window.pageYOffset || document.documentElement.scrollTop;
   window.addEventListener("scroll", handleScroll, false);
   window.addEventListener("resize", handleSize, false);
 
@@ -19,15 +19,23 @@ function Nav() {
     const cur = window.pageYOffset || document.documentElement.scrollTop;
     if (cur <= scroll)
       setShowing(true);
-    else if (cur <= scroll + 10) {
+    else if (cur <= scroll + 15) {
       setShowing(false)
     }
-    setScroll(cur <= 0 ? 0 : cur);
+    scroll = cur <= 0 ? 0 : cur;
   }
 
   function handleClick() {
     setIsOpen(!isOpen)
   }
+
+  React.useEffect(() => {
+    if(isOpen)
+      document.querySelector('body').style.overflow = 'hidden'
+    else
+      document.querySelector('body').style.overflow = 'auto'
+
+  }, [isOpen])
 
   return (
     <nav id="nav" className={`

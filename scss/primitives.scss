@@ -195,17 +195,32 @@ b {
 }
 
 button {
+  text-transform: capitalize;
+  padding: 1rem;
+  font-family: fonts.$cong-fam;
+  letter-spacing: .08rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin:1rem 0;
+  width: 100%;
+
+  &.secondary {
+    color: colors.$black;
+    width: auto;
+    padding: 0;
+
+    &:hover {
+      color: colors.$crema;
+    }
+    &:active {
+      color: colors.$info;
+    }
+  
+  }
+
   &.standard {
-    text-transform: capitalize;
-    padding: 1rem;
     color: colors.$paper;
-    font-family: fonts.$cong-fam;
-    font-size: 1.3rem;
-    letter-spacing: .12rem;
-    font-weight: 700;
     border-radius: 3px;
-    margin:1rem 0;
-    width: 100%;
     transition: background-color .2s ease-out;
     
     &.good {

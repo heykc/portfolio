@@ -196,17 +196,30 @@ b {
   flex-shrink: 6;
 }
 
-button.standard {
+button {
   text-transform: capitalize;
   padding: 1rem;
-  color: #FFFFFF;
   font-family: "congenial", sans-serif;
+  letter-spacing: 0.08rem;
   font-size: 1.3rem;
-  letter-spacing: 0.12rem;
   font-weight: 700;
-  border-radius: 3px;
   margin: 1rem 0;
   width: 100%;
+}
+button.secondary {
+  color: #291F1E;
+  width: auto;
+  padding: 0;
+}
+button.secondary:hover {
+  color: #CA9F66;
+}
+button.secondary:active {
+  color: #42979E;
+}
+button.standard {
+  color: #FFFFFF;
+  border-radius: 3px;
   transition: background-color 0.2s ease-out;
 }
 button.standard.good {
@@ -258,6 +271,7 @@ button.standard:active.info {
   z-index: 99;
   transition: margin-top 0.25s 0.1s ease-out, opacity 0.25s 0.1s ease-out, background-color 0.25s 0.1s ease-out, box-shadow 0.25s 0.1s ease-out;
   padding: 10px 90px;
+  pointer-events: none;
 }
 .nav.bg {
   background-color: transparent;
@@ -270,6 +284,7 @@ button.standard:active.info {
   }
 }
 .nav.show {
+  pointer-events: inherit;
   margin-top: 0;
   opacity: 1;
 }
@@ -450,6 +465,9 @@ button.standard:active.info {
   box-sizing: border-box;
   flex: 1;
   padding: 0;
+}
+.hero .pop article {
+  opacity: 0;
 }
 .hero .box {
   min-height: 100%;

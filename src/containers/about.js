@@ -10,36 +10,43 @@ export default function About () {
   const [devShowing, setDevShowing] = React.useState(false)
   const [designShowing, setDesignShowing] = React.useState(false)
   const [coffeeShowing, setCoffeeShowing] = React.useState(false)
+  const observer = React.useRef(null)
 
   let callback = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio === 1) {
-        if (entry.target.querySelector("#hello")) setHelloShowing(true);
-        else if (entry.target.querySelector("#dev")) setDevShowing(true);
-        else if (entry.target.querySelector("#design")) setDesignShowing(true);
-        else if (entry.target.querySelector("#coffee")) setCoffeeShowing(true);
-      } else {
-        if (entry.target.querySelector("#hello")) setHelloShowing(false);
-        else if (entry.target.querySelector("#dev")) setDevShowing(false);
-        else if (entry.target.querySelector("#design")) setDesignShowing(false);
-        else if (entry.target.querySelector("#coffee")) setCoffeeShowing(false);
-      }
-    });
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio === 1) {
+          if (entry.target.querySelector("#hello")) setHelloShowing(true);
+          else if (entry.target.querySelector("#dev")) setDevShowing(true);
+          else if (entry.target.querySelector("#design")) setDesignShowing(true);
+          else if (entry.target.querySelector("#coffee")) setCoffeeShowing(true);
+        } else {
+          if (entry.target.querySelector("#hello")) setHelloShowing(false);
+          else if (entry.target.querySelector("#dev")) setDevShowing(false);
+          else if (entry.target.querySelector("#design")) setDesignShowing(false);
+          else if (entry.target.querySelector("#coffee")) setCoffeeShowing(false);
+        }
+      });
   }
 
   React.useEffect(() => {
     createObservers('.sec');
+    return () => unObserver('.sec')
   }, [])
+
+  function unObserver(el) {
+    let targets = document.querySelectorAll(el);
+    targets.forEach((target) => observer.current.unobserve(target));
+  }
 
   function createObservers(el) {
     let options = {
       threshold: [.1, 1],
     };
   
-    let observer = new IntersectionObserver(callback, options);
+    observer.current = new IntersectionObserver(callback, options);
   
     let targets = document.querySelectorAll(el);
-    targets.forEach((target) => observer.observe(target));
+    targets.forEach((target) => observer.current.observe(target));
   }
 
   return (

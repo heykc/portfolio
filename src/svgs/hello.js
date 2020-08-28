@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import anime from "../utils/anime.es";
 
+const anims = {}
+
 export default function HelloSVG ({isShowing}) {
   const head = React.useRef(null)
   const hand = React.useRef(null)
-  const anims = {}
   
   useEffect(() => {
     anims.wave = anime
@@ -26,7 +27,7 @@ export default function HelloSVG ({isShowing}) {
     
     anims.flyIn = anime
     .timeline({
-      autoplay: true,
+      autoplay: false,
     })
     .add({
       targets: head.current,
@@ -43,19 +44,23 @@ export default function HelloSVG ({isShowing}) {
       opacity: [0, 1],
       rotate: [0, -15],
       duration: 800,
-    }, 0).finished.then(() => anims.wave.play())
+      complete: () => anims.wave.play()
+    }, 0)
 
   }, [])
+
 
   useEffect(() => {
     if(isShowing) {
       if (anims.flyIn.completed && (anims.wave.completed || !anims.wave.began))
-        anims.wave.play()
+        anims.wave.play()    
+      if (!anims.flyIn.began)
+        anims.flyIn.play()   
     } 
   }, [isShowing])
   
   return (
-    <svg viewBox="0 0 300 300">
+    <svg viewBox="0 0 300 300" id="hello">
       <defs>
         <style>
           {`

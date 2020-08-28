@@ -2,54 +2,54 @@ import React from 'react';
 import anime from "../utils/anime.es";
 
 function Burger ({isOpen}) {
-  const [anims, setAnims] = React.useState({});
   const top = React.useRef(null)
   const mid = React.useRef(null)
   const mid2 = React.useRef(null)
   const bot = React.useRef(null)
-  
+  const [anims, setAnims] = React.useState({})
+
   React.useEffect(() => {
-    if(isOpen){
-      anime
+    setAnims({
+      x: anime
       .timeline({
-        begin: () => anims.anim?.reset()
+        autoplay: false,
       })
       .add({
         targets: [top.current, bot.current],
-        scaleX: [1,0],
+        scaleX: 0,
         duration: 200,
         easing: 'easeInSine',
       })
       .add({
-        targets: [document.querySelector("#burger")],
-        rotate: '1turn',
-        duration: 400,
-      }, 100)
-      .add({
         targets: [mid2.current],
-        rotate: '40deg',
+        rotate: 40,
         opacity:1,
         stroke: '#ffffff',
         duration: 100,
       }, 0)
       .add({
         targets: [mid.current],
-        rotate: '-40deg',
+        rotate: -40,
         scaleX: 1,
         stroke: '#ffffff',
         duration: 100,
         easing: 'easeInSine',
       }, 0)
-    } else {
-      anime
+      .add({
+        targets: [document.querySelector("#burger")],
+        rotate: [0, '1turn'],
+        duration: 400,
+      }, 100),
+  
+      ham: anime
       .timeline({
-        begin: () => anims.anim?.reset()
+        autoplay: false,
       })
       .add({
         targets: [document.querySelector("#burger")],
-        rotate: 0,
+        rotate: '-=1turn',
         duration: 400,
-      }, 100)
+      })
       .add({
         targets: [mid.current],
         rotate: 0,
@@ -66,41 +66,56 @@ function Burger ({isOpen}) {
       }, 200)
       .add({
         targets: [top.current, bot.current],
-        scaleX: [0,1],
+        scaleX: 1,
         duration: 200,
         easing: 'easeInSine',
-      }, 200)
-    }
-  })
+      }, 200),
+      
+      slink: anime
+      .timeline({
+        autoplay: false,
+      })
+      .add({
+        targets: [
+          top.current, 
+          mid.current, 
+          bot.current
+        ],
+        scaleX: [
+          { value: .6 },
+          { value: 1 },
+        ],
+        easing: 'easeInOutSine',
+        duration: 500,
+        delay: anime.stagger(100, {from: 'center'}),
+      })
 
+    })
+  }, [])
+  
+  React.useEffect(handleOpen, [isOpen, anims])
+
+  function handleOpen() {
+    if(anims.slink)
+      anims.slink.reset();
+    if(isOpen) {
+      if(anims.x) {
+        anims.ham.reset();
+        anims.x.restart();
+      }
+    }
+    else {
+      if(anims.ham) {
+        anims.x.reset();
+        anims.ham.restart();
+      }
+    }
+  }
+    
   function handleHover() {
     if(!isOpen) {
-      if(!anims.anim) {
-        setAnims({...anims, anim: anime
-        .timeline({
-          complete: (self) => self.began = false, 
-        })
-        .add({
-          targets: [
-            top.current, 
-            // zig, 
-            mid.current, 
-            // zag, 
-            bot.current
-          ],
-          // strokeDashoffset: [anime.setDashoffset,0],
-          scaleX: [
-            { value: .6 },
-            { value: 1 },
-          ],
-          easing: 'easeInOutSine',
-          duration: 500,
-          delay: anime.stagger(100, {from: 'center'}),
-        })});
-      }
-      else if (!anims.anim.began){
-        anims.anim.restart()
-      }
+      if(!anims.slink.began || anims.slink.completed)
+        anims.slink.play();
     }
   }
   
@@ -111,7 +126,7 @@ function Burger ({isOpen}) {
       x="0px" 
       y="0px"
       viewBox="0 0 60 55" 
-      onMouseOver={handleHover}
+      onMouseEnter={handleHover}
     >
       <defs>
         <style>

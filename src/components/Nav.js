@@ -8,6 +8,12 @@ function Nav() {
   const [isShowing, setShowing] = React.useState(true);
   const [isOpen, setIsOpen] = React.useState(false);
   window.addEventListener("scroll", handleScroll, false);
+  window.addEventListener("resize", handleSize, false);
+
+  function handleSize() {
+    if(window.innerWidth > 720)
+      setIsOpen(false);
+  }
 
   function handleScroll() {
     const cur = window.pageYOffset || document.documentElement.scrollTop;

@@ -335,6 +335,7 @@ button.standard:active.info {
   width: 60px;
   height: 60px;
   display: block;
+  margin: 0;
 }
 @media (min-width: 720px) {
   .nav .ham, .nav .overlay {
@@ -367,8 +368,8 @@ button.standard:active.info {
 .nav .links.opened {
   display: block;
   position: fixed;
-  top: 20vh;
-  left: 1rem;
+  top: 8rem;
+  left: 1.3rem;
   width: 100%;
   height: 100%;
   z-index: 20;
@@ -420,7 +421,7 @@ button.standard:active.info {
   align-items: stretch;
   flex-direction: column;
   margin-bottom: 3rem;
-  background-color: transparent;
+  background-color: #FFFFFF;
   box-shadow: 1px 3px 8px rgba(41, 31, 30, 0.05);
   transition: margin-bottom 0.25s 0.1s ease-out, height 0.25s 0.1s ease-out;
 }
@@ -471,7 +472,6 @@ button.standard:active.info {
 }
 .hero .box {
   min-height: 100%;
-  background-color: #FFFFFF;
   box-sizing: border-box;
   padding: 2rem;
   box-shadow: none;
@@ -536,6 +536,7 @@ button.standard:active.info {
     box-shadow: 1px 3px 8px rgba(41, 31, 30, 0.1);
     padding: 4rem;
     min-height: auto;
+    background-color: #FFFFFF;
   }
   .hero.rev {
     flex-direction: row-reverse;

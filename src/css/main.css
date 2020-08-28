@@ -352,7 +352,7 @@ button.standard:active.info {
   transition: width 0.3s, height 0.2s, margin-top 0.2s, margin-left 0.2s;
 }
 .nav .overlay.opened {
-  background-color: rgba(41, 31, 30, 0.98);
+  background-color: rgba(41, 31, 30, 0.9);
   border-radius: 0;
   width: 100vw;
   height: 100vh;
@@ -384,6 +384,8 @@ button.standard:active.info {
   margin: 2rem;
   align-items: stretch;
   color: #F6F4F3;
+  letter-spacing: 0.05rem;
+  font-size: 2rem;
 }
 .nav .link {
   font-size: 1.5rem;

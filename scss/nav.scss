@@ -96,7 +96,7 @@
     transition: width .3s, height .2s, margin-top .2s, margin-left .2s;
 
     &.opened {
-      background-color: rgba($color: colors.$black, $alpha: .98);
+      background-color: rgba($color: colors.$black, $alpha: .9);
       border-radius: 0;
       width: 100vw;
       height: 100vh;
@@ -130,7 +130,9 @@
         .link {
           margin: 2rem;
           align-items: stretch;
-          color: colors.$white
+          color: colors.$white;
+          letter-spacing: 0.05rem;
+          font-size: 2rem;
         }
       }
     }

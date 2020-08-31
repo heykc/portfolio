@@ -1,6 +1,5 @@
 import React from 'react';
 import anime from '../utils/anime.es';
-const anim = {}
 
 export default function Hero({header, text, img, color, rev = false, isShowing, children}) {
   const main = React.useRef(null)

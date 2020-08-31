@@ -4,6 +4,8 @@ import './css/reset.css';
 import "./css/main.css";
 import Nav from './components/Nav';
 import About from './containers/about';
+import Work from './containers/work';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 console.log("testing");
 
@@ -12,13 +14,17 @@ function App() {
     <>
       <Nav />
       <main id="content" className={"container row center gutters"}>
-        <About />
+        <Route exact path="/" component={About} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/work" component={Work} />
       </main>
     </>
   )
 }
 
 ReactDom.render(
-  <App />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.querySelector("#root")
 );

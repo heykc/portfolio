@@ -1,11 +1,12 @@
 import React from "react";
-import "../utils/app";
 import Burger from "../svgs/burger";
+import {Link} from "react-router-dom"
 
 
 function Nav() {
   const [isShowing, setShowing] = React.useState(true);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isTop, setIsTop] = React.useState(true);
   let scroll = window.pageYOffset || document.documentElement.scrollTop;
   window.addEventListener("scroll", handleScroll, false);
   window.addEventListener("resize", handleSize, false);
@@ -17,6 +18,11 @@ function Nav() {
 
   function handleScroll() {
     const cur = window.pageYOffset || document.documentElement.scrollTop;
+    if (cur > 0)
+      setIsTop(false);
+    else
+      setIsTop(true);
+    
     if (cur <= scroll)
       setShowing(true);
     else if (cur <= scroll + 15) {
@@ -41,7 +47,7 @@ function Nav() {
     <nav id="nav" className={`
       nav row center gutters 
       ${ isShowing ? 'show' : '' } 
-      ${ scroll !== 0 ? 'bg' : '' }
+      ${ !isTop ? 'bg' : '' }
     `}>
       <div className={"container lg row mid"}>
         <div className={"col link"}>
@@ -71,13 +77,13 @@ function Nav() {
         `}>
           <div className={"row end"}>
             <div className={"col link"}>
-              <a href="#">Work</a>
+              <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
             </div>
             <div className={"col link"}>
-              <a href="#">About</a>
+              <Link to="/work" onClick={() =>setIsOpen(false)}>Work</Link>
             </div>
             <div className={"col link"}>
-              <a href="#">Contact</a>
+              <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
             </div>
           </div>
         </div>

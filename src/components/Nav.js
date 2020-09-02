@@ -36,25 +36,32 @@ function Nav() {
   }
 
   React.useEffect(() => {
-    if(isOpen)
-      document.querySelector('body').style.overflow = 'hidden'
-    else
-      document.querySelector('body').style.overflow = 'auto'
+    if(isOpen) {
+      document.querySelector('html').style.overflowY = 'hidden'
+      document.querySelector('body').style.overflowY = 'hidden'
+    }
+    else {
+      document.querySelector('html').style.overflowY = 'auto'
+      document.querySelector('body').style.overflowY = 'auto'
+    }
 
   }, [isOpen])
 
   return (
-    <nav id="nav" className={`
-      nav row center gutters 
-      ${ isShowing ? 'show' : '' } 
-      ${ !isTop ? 'bg' : '' }
-    `}>
+    <nav id="nav" className={
+      `nav row center gutters ${ 
+        isShowing ? 'show' : '' 
+      } ${ 
+        !isTop ? 'bg' : '' 
+      }`
+    }>
       <div className={"container lg row mid"}>
         <div className={"col link"}>
-          <div className={`
-            overlay 
-            ${ isOpen ? 'opened' : '' }
-          `}>
+          <div className={
+            `overlay ${ 
+              isOpen ? 'opened' : '' 
+            }`
+          }>
           </div>
           <button 
             className={"ham"}
@@ -63,18 +70,20 @@ function Nav() {
             <Burger isOpen={isOpen} />
           </button>
         </div>
-        <div id="title" className={`
-          col link 
-          ${ isOpen ? 'opened' : '' }
-        `}>
+        <div id="title" className={
+          `col link ${ 
+            isOpen ? 'opened' : '' 
+          }`
+        }>
           <a className={"title"} href="#">
             hey kc!
           </a>
         </div>
-        <div id="links" className={`
-          links col g1 end 
-          ${ isOpen ? 'opened' : '' }
-        `}>
+        <div id="links" className={
+          `links col g1 end ${ 
+            isOpen ? 'opened' : '' 
+          }`
+        }>
           <div className={"row end"}>
             <div className={"col link"}>
               <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>

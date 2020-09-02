@@ -8,6 +8,7 @@ html,
 body {
   @extend %fill-space;
   background-color: colors.$white;
+  overflow-x: hidden;
 }
 
 .no-scroll{
@@ -40,7 +41,7 @@ body {
 p {
   font-family: fonts.$prox-fam;
   color: colors.$black-6;
-  font-size: 1.1rem;
+  font-size: .6;
   line-height: 1.4rem;
 }
 
@@ -52,19 +53,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  font-size: 3rem;
-}
-h3 {
   font-size: 2.5rem;
 }
+h3 {
+  font-size: 1.5rem;
+}
 h4 {
-  font-size: 2.2rem;
+  font-size: 1rem;
 }
 h5 {
-  font-size: 1.8rem;
+  font-size: .8rem;
 }
 h6 {
-  font-size: 1.2rem;
+  font-size: .6rem;
+}
+
+
+@media (min-width: breakpoints.$sm) {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: fonts.$cong-fam;
+    color: colors.$black;
+    font-weight: 700;
+    margin-bottom: 1.3rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 2.2rem;
+  }
+  h5 {
+    font-size: 1.8rem;
+  }
+  h6 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+
 }
 
 b {
@@ -157,22 +188,22 @@ b {
     align-self: flex-end;
   }
   &.g1 {
-    flex-grow: 1
+    flex: 1
   }
   &.g2 {
-    flex-grow: 2
+    flex: 2
   }
   &.g3 {
-    flex-grow: 3
+    flex: 3
   }
   &.g4 {
-    flex-grow: 4
+    flex: 4
   }
   &.g5 {
-    flex-grow: 5
+    flex: 5
   }
   &.g6 {
-    flex-grow: 6
+    flex: 6
   }
   &.s1 {
     flex-shrink: 1

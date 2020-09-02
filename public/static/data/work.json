@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "mutt_run",
+    "title": "Mutt & Run",
+    "desc": "Developer on the mobile game ",
+    "img": "/work/mutt_run.png"
+  },
+  {
+    "slug": "dungeon_dom",
+    "title": "Dungeon DOM",
+    "desc": "Co-Developing a lite dungeon crawler game in Vanilla JS using the Web Component API. Aside from a random seed generator library, all code is built in-house using Vanilla JavaScript.",
+    "img": "/work/dungeon_dom.png"
+  },
+  {
+    "slug": "bd_shopping_guide",
+    "title": "Brad's Deals Shopping Guide",
+    "desc": "Lead the redesign of the heavily trafficked shopping guide section of the Brad's Deals website. Designed from the ground up to be mobile first, as over 50% of our demographic used our site on their mobile devices.",
+    "img": "/work/bd_shopping_guide.png"
+  },
+  {
+    "slug": "artedi_app",
+    "title": "Artedi Diving App",
+    "desc": "Original developer for a scientific diving school based in Puerto Rico. Built an app students could use underwater to survey fish and export their survey data, saving hours of post-dive data entry work in the lab.",
+    "img": "/work/artedi.png"
+  }
+]

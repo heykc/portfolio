@@ -7,8 +7,6 @@ import About from './containers/about';
 import Work from './containers/work';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-console.log("testing");
-
 function App() {
   return (
     <>

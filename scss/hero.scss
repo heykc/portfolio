@@ -9,7 +9,7 @@
   align-items: stretch;
   flex-direction: column;
   margin-bottom: 3rem;
-  background-color: transparent;
+  background-color: colors.$paper;
   box-shadow: 1px 3px 8px rgba($color: colors.$black, $alpha: .05);
   transition: margin-bottom .25s .1s ease-out, 
     height .25s .1s ease-out;
@@ -50,8 +50,9 @@
     min-height: 200px;
     padding: 2rem;
 
-    object {
+    svg {
       width:100%;
+      max-height: 100%;
       opacity: .8;
       mix-blend-mode: multiply;
     }
@@ -67,17 +68,22 @@
     box-sizing: border-box;
     flex: 1;
     padding: 0;
+    
+    article {
+      opacity: 0;
+    }
   }
   
   .box {
     min-height: 100%;
-    background-color: colors.$paper;
+    
     box-sizing: border-box;
     padding: 2rem;
     box-shadow: none;
     border-radius: 0 0 8px 8px;
     transition: height .25s .1s ease-out,
       padding .25s .1s ease-out;
+
   }
 
   @media (min-width: breakpoints.$md) {
@@ -134,6 +140,7 @@
       box-shadow: 1px 3px 8px rgba($color: colors.$black, $alpha: .1);
       padding: 4rem;
       min-height: auto;
+      background-color: colors.$paper;
     }
     &.rev{
       flex-direction: row-reverse;
@@ -149,9 +156,6 @@
     @media (min-width: breakpoints.$lg) {
       .sec {
         flex:4;
-        svg {
-          max-width: 40%;
-        }
       }
     }
   }

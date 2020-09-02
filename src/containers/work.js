@@ -13,7 +13,8 @@ export default function Work () {
       <div style={{marginTop: '6rem'}}></div>
       <WorkItem color="blue" slug="dungeon_dom" isShowing wip/>
       <WorkItem color="gold" slug="bd_shopping_guide" isShowing rev/>
-      <WorkItem color="green" slug="artedi_app" isShowing/>
+      <WorkItem color="green" slug="mutt_run" isShowing/>
+      <WorkItem color="blue" slug="artedi_app" isShowing rev/>
     </div>
   )
 }

@@ -35,7 +35,7 @@ export default function WorkItem(props) {
           <p>
             {info.desc ? info.desc : "No Description"}
           </p>
-          <button className="secondary col top">View Link &gt;</button>
+          {info.links && info.links.map(link => <button className="secondary col top"><a href={link.link} target="_blank">{link.text} &gt;</a></button>)}
         </article>
       </section>
     </div>

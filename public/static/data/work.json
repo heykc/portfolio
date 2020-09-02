@@ -2,25 +2,53 @@
   {
     "slug": "mutt_run",
     "title": "Mutt & Run",
-    "desc": "Developer on the mobile game ",
-    "img": "/work/mutt_run.png"
+    "desc": "Sole developer/designer on an endless runner mobile game out on the Google Play Store. Play as a dog running through fields of trees in order to grab as many treats as you can!",
+    "img": "/work/mutt_run.png",
+    "links": [
+      {
+        "link": "https://coffinatedgames.itch.io/mutt-n-run",
+        "icon": "itch",
+        "text": "view game"
+      }
+    ]
   },
   {
     "slug": "dungeon_dom",
     "title": "Dungeon DOM",
-    "desc": "Co-Developing a lite dungeon crawler game in Vanilla JS using the Web Component API. Aside from a random seed generator library, all code is built in-house using Vanilla JavaScript.",
-    "img": "/work/dungeon_dom.png"
+    "desc": "Co-Developing a rogue-lite dungeon crawler. The app is built in Vanilla JS using the Web Component API. I've been in charge of most of the data handling and game logic using up-to-date ES6 standards. Also built a custom suite of icons used in-game.",
+    "img": "/work/dungeon_dom.png",
+    "links": [
+      {
+        "link": "https://github.com/heykc/READMEDungeon",
+        "icon": "github",
+        "text": "View Code"
+      }
+    ]
   },
   {
     "slug": "bd_shopping_guide",
     "title": "Brad's Deals Shopping Guide",
-    "desc": "Lead the redesign of the heavily trafficked shopping guide section of the Brad's Deals website. Designed from the ground up to be mobile first, as over 50% of our demographic used our site on their mobile devices.",
-    "img": "/work/bd_shopping_guide.png"
+    "desc": "Led the redesign of the heavily trafficked shopping guide section of the Brad's Deals website. Designed from the ground up to be mobile first, as over 50% of our demographic used our site on their mobile devices.",
+    "img": "/work/bd_shopping_guide.png",
+    "links": [
+      {
+        "link": "https://www.bradsdeals.com/guides/summer-sales",
+        "icon": "web",
+        "text": "view live"
+      }
+    ]
   },
   {
     "slug": "artedi_app",
     "title": "Artedi Diving App",
     "desc": "Original developer for a scientific diving school based in Puerto Rico. Built an app students could use underwater to survey fish and export their survey data, saving hours of post-dive data entry work in the lab.",
-    "img": "/work/artedi.png"
+    "img": "/work/artedi.png",
+    "links": [
+      {
+        "link": "http://artediapp.com/",
+        "icon": "web",
+        "text": "view live"
+      }
+    ]
   }
 ]

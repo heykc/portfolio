@@ -75,6 +75,11 @@ h6 {
   font-size: 0.6rem;
 }
 
+a, a:hover, a:focus, a:visited, a:active {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 @media (min-width: 540px) {
   h1, h2, h3, h4, h5, h6 {
     font-family: "congenial", sans-serif;
@@ -740,6 +745,10 @@ button.standard:active.info {
     max-width: 450px;
     background-color: transparent;
     box-shadow: none;
+    margin-left: 2rem;
+  }
+  .rev .work-item section article {
+    margin-right: 2rem;
   }
 }
 

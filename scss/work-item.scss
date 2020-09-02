@@ -177,6 +177,11 @@ $wip-size: 75px;
         max-width: 450px;
         background-color: transparent;
         box-shadow: none;
+        margin-left: 2rem;
+            
+        .rev & {
+          margin-right: 2rem;
+        }
       }
     }
   }

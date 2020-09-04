@@ -58,7 +58,7 @@ export default function About () {
         <Hero 
           isShowing={helloShowing}
           color="blue"
-          header="I'm Keith"
+          header="Hey, I'm Keith!"
           text={`I'm a web developer and designer with over 4 years of
           experience. I've built web tools for a game company, brought
           an entire warehouse into the 21st century, and even helped a

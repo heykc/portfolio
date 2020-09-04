@@ -11,6 +11,16 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  display: flex;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .no-scroll{
   overflow: hidden;
 }
@@ -43,6 +53,11 @@ p {
   color: colors.$black-6;
   font-size: .6;
   line-height: 1.4rem;
+
+  &.copy {
+    color: rgba($color: colors.$black, $alpha: .3);
+    font-size: .9rem;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -245,11 +260,56 @@ button {
     width: auto;
     padding: 0;
 
+    &.loading {
+      color: colors.$yes-dk;
+    }
+    &.idle {
+      filter: grayscale(100%);
+      color: colors.$yes-dk;
+    }
+    &.good {
+      color: colors.$yes;
+    }
+    &.bad {
+      color: colors.$no;
+    }
+    &.warn {
+      color: colors.$warn;
+    }
+    &.info {
+      color: colors.$info;
+    }
+    
     &:hover {
       color: colors.$crema;
+      &.good {
+        color: colors.$yes-dk;
+      }
+      &.bad {
+        color: colors.$no-dk;
+      }
+      &.warn {
+        color: colors.$warn-dk;
+      }
+      &.info {
+        color: colors.$info-dk;
+      }
     }
+    
     &:active {
       color: colors.$info;
+      &.good {
+        color: colors.$yes-li;
+      }
+      &.bad {
+        color: colors.$no-li;
+      }
+      &.warn {
+        color: colors.$warn-li;
+      }
+      &.info {
+        color: colors.$info-li;
+      }
     }
   
   }
@@ -259,6 +319,13 @@ button {
     border-radius: 3px;
     transition: background-color .2s ease-out;
     
+    &.loading {
+      background-color: colors.$yes-dk;
+    }
+    &.idle {
+      filter: grayscale(100%);
+      background-color: colors.$yes-dk;
+    }
     &.good {
       background-color: colors.$yes;
     }
@@ -302,5 +369,38 @@ button {
       }
     }
   }
+}
 
+.modal {
+  position: fixed;
+  top:0;
+  left: 0;
+  display:flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  background-color: rgba($color: colors.$black, $alpha: .9);
+
+  .box {
+    width: 100%;
+    max-width: 80%;
+    max-height: 90%;
+    background-color: colors.$paper;
+    border-radius: 3px;
+    padding: 1rem;
+    box-shadow: 0 3px 8px rgba($color: colors.$black, $alpha: .1);
+    overflow: auto;
+    
+    @media (min-width: breakpoints.$sm) {
+      max-width: 500px; 
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0 3rem 0;
 }

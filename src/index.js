@@ -7,6 +7,7 @@ import About from './containers/about';
 import Work from './containers/work';
 import Contact from './containers/contact';
 import {BrowserRouter, Route} from 'react-router-dom';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/work" component={Work} />
         <Route exact path="/contact" component={Contact} />
       </main>
+      <Footer />
     </>
   )
 }

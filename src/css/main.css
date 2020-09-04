@@ -11,6 +11,16 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  display: flex;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .no-scroll {
   overflow: hidden;
 }
@@ -46,6 +56,10 @@ p {
   color: rgba(41, 31, 30, 0.6);
   font-size: 0.6;
   line-height: 1.4rem;
+}
+p.copy {
+  color: rgba(41, 31, 30, 0.3);
+  font-size: 0.9rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -249,16 +263,66 @@ button.secondary {
   width: auto;
   padding: 0;
 }
+button.secondary.loading {
+  color: #37A142;
+}
+button.secondary.idle {
+  filter: grayscale(100%);
+  color: #37A142;
+}
+button.secondary.good {
+  color: #4CC865;
+}
+button.secondary.bad {
+  color: #E13936;
+}
+button.secondary.warn {
+  color: #F2AE40;
+}
+button.secondary.info {
+  color: #42979E;
+}
 button.secondary:hover {
   color: #CA9F66;
 }
+button.secondary:hover.good {
+  color: #37A142;
+}
+button.secondary:hover.bad {
+  color: #D33422;
+}
+button.secondary:hover.warn {
+  color: #EF9D1A;
+}
+button.secondary:hover.info {
+  color: #306D73;
+}
 button.secondary:active {
   color: #42979E;
+}
+button.secondary:active.good {
+  color: #73D486;
+}
+button.secondary:active.bad {
+  color: #E56E61;
+}
+button.secondary:active.warn {
+  color: #FFB338;
+}
+button.secondary:active.info {
+  color: #6FBCC3;
 }
 button.standard {
   color: #FFFFFF;
   border-radius: 3px;
   transition: background-color 0.2s ease-out;
+}
+button.standard.loading {
+  background-color: #37A142;
+}
+button.standard.idle {
+  filter: grayscale(100%);
+  background-color: #37A142;
 }
 button.standard.good {
   background-color: #4CC865;
@@ -295,6 +359,40 @@ button.standard:active.warn {
 }
 button.standard:active.info {
   background-color: #6FBCC3;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  background-color: rgba(41, 31, 30, 0.9);
+}
+.modal .box {
+  width: 100%;
+  max-width: 80%;
+  max-height: 90%;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  padding: 1rem;
+  box-shadow: 0 3px 8px rgba(41, 31, 30, 0.1);
+  overflow: auto;
+}
+@media (min-width: 540px) {
+  .modal .box {
+    max-width: 500px;
+  }
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0 3rem 0;
 }
 
 .nav {
@@ -604,16 +702,16 @@ button.standard:active.info {
 .work-item .img {
   position: relative;
   z-index: 2;
-  transition: filter 0.2s ease-out, transform 0.2s ease-out, opacity 0.2s ease-out;
+  transition: filter 0.4s ease-out, transform 0.4s ease-out, opacity 0.4s ease-out;
   filter: grayscale(100%) contrast(30%);
-  opacity: 0;
+  opacity: 0.5;
   margin-bottom: 1rem;
 }
 .work-item .img img {
   width: 100%;
 }
 .work-item .circ {
-  transition: filter 0.2s, transform 0.2s;
+  transition: filter 0.4s, transform 0.4s;
   position: absolute;
   z-index: -1;
   top: -15vw;
@@ -651,7 +749,7 @@ button.standard:active.info {
   padding: 2rem;
   background-color: #FFFFFF;
   border-radius: 3px;
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
   box-shadow: 0 0 10px rgba(41, 31, 30, 0.1);
 }
 .work-item section article header {
@@ -696,6 +794,7 @@ button.standard:active.info {
 }
 @media (min-width: 840px) {
   .work-item.rev .img {
+    transform-origin: top right;
     order: 1;
   }
 }
@@ -752,22 +851,112 @@ button.standard:active.info {
   }
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
+.contact {
+  margin-top: 8rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact button {
+  margin: 1rem;
+  width: 100%;
+}
+.contact header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+@media (min-width: 720px) {
+  .contact {
+    flex-direction: row;
+  }
+  .contact .social {
+    align-self: stretch;
+  }
+  .contact .icons {
+    align-items: center;
+  }
+  .contact .separator {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact .separator .l {
+    height: 80%;
+    width: 0;
+    border-top: none;
+    border-left: 2px solid rgba(41, 31, 30, 0.2);
+  }
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+.separator .l {
+  border-top: 2px solid rgba(41, 31, 30, 0.2);
+  border-left: none;
+  height: 0;
+  width: 80%;
+}
+.separator .circ {
+  margin: 1rem;
+  flex: 1 0 75px;
+  width: 75px;
+  height: 75px;
+  background-color: #42979E;
+  border-radius: 50%;
+  font-family: "congenial", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #F6F4F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social {
+  flex: 1 0 250px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.icons {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+}
+@media (min-width: 720px) {
+  .icons {
+    flex-direction: column;
+  }
+}
+.icons a {
+  flex: 1;
+  width: 55px;
+  height: 55px;
+  transition: color 0.2s;
+}
+.icons a.git:hover {
+  color: #0366d6;
+}
+.icons a.and:hover {
+  color: #669900;
+}
+.icons a.itch:hover {
+  color: #FF2449;
+}
+.icons a.inst:hover {
+  color: #E1306C;
+}
+.icons a svg {
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-  background-color: rgba(41, 31, 30, 0.9);
 }
 
 form {
   width: 100%;
-  max-width: 80%;
   max-height: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -777,15 +966,12 @@ form {
   font-weight: 700;
   color: rgba(41, 31, 30, 0.8);
   font-family: "proxima-nova", sans-serif;
-  background-color: #FFFFFF;
-  border-radius: 3px;
-  padding: 1rem;
-  box-shadow: 0 3px 8px rgba(41, 31, 30, 0.1);
-  overflow: auto;
+  align-self: center;
 }
-@media (min-width: 540px) {
+@media (min-width: 720px) {
   form {
-    max-width: 500px;
+    max-width: 80%;
+    align-self: flex-start;
   }
 }
 form .form-group {
@@ -795,6 +981,10 @@ form .form-group {
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
+}
+form .form-group.full {
+  flex: auto;
+  width: 100%;
 }
 form .form-group input, form .form-group textarea {
   padding: 0.4rem;
@@ -816,9 +1006,6 @@ form .form-group small {
 }
 form .form-group small.bad {
   color: #E13936;
-}
-form header, form button {
-  margin: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

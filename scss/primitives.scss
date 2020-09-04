@@ -19,6 +19,21 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+}
+
+#intersector {
+  position: fixed;
+  top:50%;
+  height: 10vh;
+  width: 100vw;
+  background-color: royalblue;
+  opacity: .5;
+  z-index: 99;
+}
+
+main {
+  align-items: center;
 }
 
 .no-scroll{

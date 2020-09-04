@@ -5,6 +5,7 @@ import "./css/main.css";
 import Nav from './components/Nav';
 import About from './containers/about';
 import Work from './containers/work';
+import Contact from './containers/contact';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/" component={About} />
         <Route exact path="/about" component={About} />
         <Route exact path="/work" component={Work} />
+        <Route exact path="/contact" component={Contact} />
       </main>
     </>
   )

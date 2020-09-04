@@ -457,7 +457,6 @@ button.standard:active.info {
 .hero {
   padding: 0;
   border-radius: 8px;
-  display: flex;
   align-items: stretch;
   flex-direction: column;
   margin-bottom: 3rem;
@@ -521,6 +520,7 @@ button.standard:active.info {
 @media (min-width: 720px) {
   .hero {
     margin-bottom: 6rem;
+    display: flex;
     flex-direction: row;
   }
   .hero .sec {
@@ -750,6 +750,75 @@ button.standard:active.info {
   .rev .work-item section article {
     margin-right: 2rem;
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  background-color: rgba(41, 31, 30, 0.9);
+}
+
+form {
+  width: 100%;
+  max-width: 80%;
+  max-height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(41, 31, 30, 0.8);
+  font-family: "proxima-nova", sans-serif;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  padding: 1rem;
+  box-shadow: 0 3px 8px rgba(41, 31, 30, 0.1);
+  overflow: auto;
+}
+@media (min-width: 540px) {
+  form {
+    max-width: 500px;
+  }
+}
+form .form-group {
+  flex: 1 0 100px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+form .form-group input, form .form-group textarea {
+  padding: 0.4rem;
+  font-family: "proxima-nova", sans-serif;
+  letter-spacing: 0.02rem;
+  border-radius: 3px;
+  border: 1px solid rgba(41, 31, 30, 0.4);
+}
+form .form-group input.bad, form .form-group textarea.bad {
+  border: 1px solid #E13936;
+}
+form .form-group label {
+  margin-bottom: 0.3rem;
+}
+form .form-group small {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+form .form-group small.bad {
+  color: #E13936;
+}
+form header, form button {
+  margin: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

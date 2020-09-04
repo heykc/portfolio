@@ -5,7 +5,6 @@
 .hero {
   padding: 0;
   border-radius: 8px;
-  display: flex;
   align-items: stretch;
   flex-direction: column;
   margin-bottom: 3rem;
@@ -88,6 +87,7 @@
 
   @media (min-width: breakpoints.$md) {
     margin-bottom: 6rem;
+    display: flex;
     flex-direction: row;
     .sec{
       flex:3;

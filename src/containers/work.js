@@ -11,7 +11,7 @@ export default function Work () {
 
   const callback = (entries) => {
     entries.forEach((entry) => {
-      if (entry.intersectionRatio === 1) {
+      if (entry.intersectionRatio > .4) {
         // console.log(appear)
         if (entry.target.querySelector("#dungeon_dom")) setDungeon(true);
         else if (entry.target.querySelector("#bd_shopping_guide")) setBd(true);
@@ -46,7 +46,7 @@ export default function Work () {
 
   function createObservers(el) {
     let options = {
-      threshold: [.1, 1],
+      threshold: [.4,.6],
     };
   
     observer.current = new IntersectionObserver(callback, options);
@@ -56,12 +56,14 @@ export default function Work () {
   }
 
   return (
-    <main id="content" className={"container lg row c center gutters"}>
-      <div style={{marginTop: '6rem'}}></div>
-      <WorkItem color="blue" slug="dungeon_dom" isShowing={dungeon} wip/>
-      <WorkItem color="gold" slug="bd_shopping_guide" isShowing={bd} rev/>
-      <WorkItem color="green" slug="mutt_run" isShowing={mutt}/>
-      <WorkItem color="blue" slug="artedi_app" isShowing={artedi} rev/>
+    <main id="content" className={"container row c center gutters"}>
+      <div className={"container lg row c center"}>
+        <div style={{marginTop: '6rem'}}></div>
+        <WorkItem color="blue" slug="dungeon_dom" isShowing={dungeon} wip/>
+        <WorkItem color="gold" slug="bd_shopping_guide" isShowing={bd} rev/>
+        <WorkItem color="green" slug="mutt_run" isShowing={mutt}/>
+        <WorkItem color="blue" slug="artedi_app" isShowing={artedi} rev/>
+        </div>
     </main>
   )
 }

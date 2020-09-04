@@ -15,19 +15,19 @@ export default function About () {
   
 
   let callback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio === 1) {
-          if (entry.target.querySelector("#hello")) setHelloShowing(true);
-          else if (entry.target.querySelector("#dev")) setDevShowing(true);
-          else if (entry.target.querySelector("#design")) setDesignShowing(true);
-          else if (entry.target.querySelector("#coffee")) setCoffeeShowing(true);
-        } else {
-          if (entry.target.querySelector("#hello")) setHelloShowing(false);
-          else if (entry.target.querySelector("#dev")) setDevShowing(false);
-          else if (entry.target.querySelector("#design")) setDesignShowing(false);
-          else if (entry.target.querySelector("#coffee")) setCoffeeShowing(false);
-        }
-      });
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio === 1) {
+        if (entry.target.querySelector("#hello")) setHelloShowing(true);
+        else if (entry.target.querySelector("#dev")) setDevShowing(true);
+        else if (entry.target.querySelector("#design")) setDesignShowing(true);
+        else if (entry.target.querySelector("#coffee")) setCoffeeShowing(true);
+      } else {
+        if (entry.target.querySelector("#hello")) setHelloShowing(false);
+        else if (entry.target.querySelector("#dev")) setDevShowing(false);
+        else if (entry.target.querySelector("#design")) setDesignShowing(false);
+        else if (entry.target.querySelector("#coffee")) setCoffeeShowing(false);
+      }
+    });
   }
 
   React.useEffect(() => {

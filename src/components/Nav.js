@@ -75,7 +75,14 @@ function Nav() {
             isOpen ? 'opened' : '' 
           }`
         }>
-          <Link className={"title"} to="/" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="/" 
+            onClick={() => setIsOpen(false)}
+            className={
+              `title ${ 
+                (isTop && window.innerWidth < 720) || window.innerWidth > 720 || isOpen ? 'show' : '' 
+              }`
+            }>
             hey kc!
           </Link>
         </div>

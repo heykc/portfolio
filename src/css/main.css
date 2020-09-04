@@ -458,6 +458,12 @@ footer {
   top: 3rem;
   left: 6rem;
   z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+}
+.nav .title.show {
+  opacity: 1;
+  pointer-events: inherit;
 }
 .nav .title .link {
   margin: 10px;
@@ -546,7 +552,7 @@ footer {
   color: inherit;
   text-decoration: none;
   border-width: 0;
-  transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out, opacity 0.4s;
 }
 .nav .link a:visited, .nav .link a:active, .nav .link a:focus {
   color: inherit;
@@ -991,7 +997,7 @@ form {
 }
 form .form-group {
   flex: 1 0 100px;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: stretch;

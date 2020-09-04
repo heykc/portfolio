@@ -172,8 +172,8 @@ export default function Contact () {
   }
 
   return (
-    <main id="content" className={"container lg row c center gutters"}>
-      <section className="contact">
+    <main id="content" className={"container row c center gutters"}>
+      <section className="container lg contact">
         <form onSubmit={handleSubmit}>
           <header>
             <h3>Message me!</h3>

@@ -15,7 +15,7 @@
   {
     "slug": "dungeon_dom",
     "title": "Dungeon DOM",
-    "desc": "Co-Developing a rogue-lite dungeon crawler. The app is built in Vanilla JS using the Web Component API. I've been in charge of most of the data handling and game logic using up-to-date ES6 standards. Also built a custom suite of icons used in-game.",
+    "desc": "Co-Developing a rogue-lite dungeon crawler. The app is built in Vanilla JS using the Web Component API. I've been in charge of most of the data handling and game logic using up-to-date ES6 standards. I also built a custom suite of icons used in-game.",
     "img": "/work/dungeon_dom.png",
     "links": [
       {
@@ -28,7 +28,7 @@
   {
     "slug": "bd_shopping_guide",
     "title": "Brad's Deals Shopping Guide",
-    "desc": "Led the redesign of the heavily trafficked shopping guide section of the Brad's Deals website. Designed from the ground up to be mobile first, as over 50% of our demographic used our site on their mobile devices.",
+    "desc": "Worked with UX team to develop Brad's Deals' first push into mobile-first, responsive design. Our work on the shopping guide would later become the blueprint for the entire website's mobile-first redesign.",
     "img": "/work/bd_shopping_guide.png",
     "links": [
       {

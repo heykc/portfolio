@@ -15,9 +15,9 @@ $wip-size: 75px;
   .img {
     position: relative;
     z-index: 2;
-    transition: filter .2s ease-out, transform .2s ease-out, opacity .2s ease-out;
+    transition: filter .4s ease-out, transform .4s ease-out, opacity .4s ease-out;
     filter: grayscale(100%) contrast(30%);
-    opacity: 0;
+    opacity: .5;
     margin-bottom: 1rem;
 
     img {
@@ -26,7 +26,7 @@ $wip-size: 75px;
   }
 
   .circ {
-    transition: filter .2s, transform .2s;
+    transition: filter .4s, transform .4s;
     position: absolute;
     z-index: -1;
     top: -15vw;
@@ -68,7 +68,7 @@ $wip-size: 75px;
       padding: 2rem;
       background-color: colors.$paper;
       border-radius: 3px;
-      transition: opacity .2s;
+      transition: opacity .4s;
       box-shadow: 0 0 10px rgba($color: colors.$black, $alpha: .1);
 
       header {
@@ -121,6 +121,7 @@ $wip-size: 75px;
     .img {
       order: 0;
       @media (min-width: breakpoints.$md + 120px) {
+        transform-origin: top right;
         order: 1;
       }
     }

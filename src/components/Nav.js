@@ -75,9 +75,9 @@ function Nav() {
             isOpen ? 'opened' : '' 
           }`
         }>
-          <a className={"title"} href="#">
+          <Link className={"title"} to="/" onClick={() => setIsOpen(false)}>
             hey kc!
-          </a>
+          </Link>
         </div>
         <div id="links" className={
           `links col g1 end ${ 

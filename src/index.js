@@ -13,12 +13,10 @@ function App() {
   return (
     <>
       <Nav />
-      <main id="content" className={"container row center gutters"}>
-        <Route exact path="/" component={About} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/work" component={Work} />
-        <Route exact path="/contact" component={Contact} />
-      </main>
+      <Route exact path="/" component={About} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/work" component={Work} />
+      <Route exact path="/contact" component={Contact} />
       <Footer />
     </>
   )

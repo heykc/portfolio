@@ -19,7 +19,7 @@ export default function WorkItem(props) {
         props.rev ? "rev" : ""
       }`
     }>
-      <section className="row">
+      <section  id={props.slug} className="row">
         <div className="img col">
           {info.img 
             ? (<img src={ process.env.PUBLIC_URL + '/static/images' + info.img} />) 
@@ -35,7 +35,7 @@ export default function WorkItem(props) {
           <p>
             {info.desc ? info.desc : "No Description"}
           </p>
-          {info.links && info.links.map(link => <button className="secondary col top"><a href={link.link} target="_blank">{link.text} &gt;</a></button>)}
+          {info.links && info.links.map((link, i) => <button key={`work-btn-${i}`} className="secondary col top"><a href={link.link} target="_blank">{link.text} &gt;</a></button>)}
         </article>
       </section>
     </div>

@@ -30,7 +30,6 @@ export default function HelloSVG ({isShowing}) {
           arrow.current,
           laptop.current,
           head.current,
-          // git.current,
         ],
         translateY: [
           {value: [200, 0]}

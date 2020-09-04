@@ -1,3 +1,4 @@
+import IntersectionObserver from 'intersection-observer-polyfill';
 import React from 'react';
 import WorkItem from '../components/work-item';
 
@@ -7,12 +8,10 @@ export default function Work () {
   const [bd, setBd] = React.useState(false);
   const [mutt, setMutt] = React.useState(false);
   const [artedi, setArtedi] = React.useState(false);
-  // const [appear, setAppear] = React.useState({})
 
   const callback = (entries) => {
     entries.forEach((entry) => {
       if (entry.intersectionRatio > .4) {
-        // console.log(appear)
         if (entry.target.querySelector("#dungeon_dom")) setDungeon(true);
         else if (entry.target.querySelector("#bd_shopping_guide")) setBd(true);
         else if (entry.target.querySelector("#mutt_run")) setMutt(true);
@@ -26,16 +25,13 @@ export default function Work () {
       }
     });
   }
-
-  React.useEffect(() => {
-    // console.log(appear)
-  })
   
   React.useEffect(() => {
     window.scrollTo(0, 0);
     setTimeout(() => {
       createObservers('.work-item');
     }, 500)
+    
     return () => unObserver('.work-item')
   }, [])
 
@@ -50,19 +46,20 @@ export default function Work () {
     };
   
     observer.current = new IntersectionObserver(callback, options);
-  
-    let targets = document.querySelectorAll(el);
-    targets.forEach((target) => observer.current.observe(target));
+    if (observer.current) {
+      let targets = document.querySelectorAll(el);
+      targets.forEach((target) => observer.current.observe(target));
+    }
   }
 
   return (
     <main id="content" className={"container row c center gutters"}>
       <div className={"container lg row c center"}>
         <div style={{marginTop: '6rem'}}></div>
-        <WorkItem color="blue" slug="dungeon_dom" isShowing={dungeon} wip/>
-        <WorkItem color="gold" slug="bd_shopping_guide" isShowing={bd} rev/>
-        <WorkItem color="green" slug="mutt_run" isShowing={mutt}/>
-        <WorkItem color="blue" slug="artedi_app" isShowing={artedi} rev/>
+        <WorkItem color="blue" slug="dungeon_dom" isShowing={observer.current ? dungeon : true} wip/>
+        <WorkItem color="gold" slug="bd_shopping_guide" isShowing={observer.current ? bd : true} rev/>
+        <WorkItem color="green" slug="mutt_run" isShowing={observer.current ? mutt : true}/>
+        <WorkItem color="blue" slug="artedi_app" isShowing={observer.current ? artedi : true} rev/>
         </div>
     </main>
   )

@@ -1,3 +1,4 @@
+import IntersectionObserver from 'intersection-observer-polyfill';
 import React from 'react';
 import Hero from '../components/Hero';
 import HelloSvg from '../svgs/hello';
@@ -33,6 +34,7 @@ export default function About () {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     createObservers('.sec');
+
     return () => unObserver('.sec')
   }, [])
 
@@ -45,11 +47,11 @@ export default function About () {
     let options = {
       threshold: [.1, 1],
     };
-  
+
     observer.current = new IntersectionObserver(callback, options);
-  
+
     let targets = document.querySelectorAll(el);
-    targets.forEach((target) => observer.current.observe(target));
+    targets.forEach((target) => observer.current.observe(target));  
   }
 
   return (

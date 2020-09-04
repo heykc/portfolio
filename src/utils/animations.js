@@ -45,7 +45,6 @@ document.querySelector("#burger").addEventListener('load',function(e){
 
 window.onload = () => {
   setTimeout(() => {
-    // loadBurger()
     loadCoffee()
     loadDesign()
     loadDev()
@@ -519,7 +518,6 @@ const devAnim = () => {
 const helloAnim = () => {
   if (!hello.isShown) {
     hello.isShown = true;
-    //float effect
     floatAnim([document.querySelector("#hello")]);
     anime
       .timeline(
@@ -591,7 +589,6 @@ const coffeeAnim = () => {
           targets: coffee.els.head,
           loop: 4,
           autoplay: true,
-          // direction: 'alternate',
           translateY: [
             { value: [0, -1], duration: 100 },
             { value: 1 },
@@ -745,12 +742,9 @@ function slinkBurger() {
       .add({
         targets: [
           burger.els.top, 
-          // burger.els.zig, 
           burger.els.mid, 
-          // burger.els.zag, 
           burger.els.bot
         ],
-        // strokeDashoffset: [anime.setDashoffset,0],
         scaleX: [
           { value: .6 },
           { value: 1 },

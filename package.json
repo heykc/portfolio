@@ -12,7 +12,9 @@
   "author": "Keith Charles",
   "license": "ISC",
   "dependencies": {
+    "intersection-observer-polyfill": "^0.1.0",
     "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
   },
@@ -26,9 +28,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ]
   }
 }

@@ -115,39 +115,38 @@ export default function Contact () {
       setErrors({});
     }, 3000)
 
-    // fetch('https://us-central1-portfolio-contact-45fe6.cloudfunctions.net/app/api/contacts', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-type': 'application/json'
-    //   }, 
-    //   body: JSON.stringify({
-    //     name: fields.name.value,
-    //     email: fields.email.value,
-    //     company: fields.company.value,
-    //     subject: fields.subject.value,
-    //     message: fields.message.value,
-    //   })
-    // })
-    // .then((res) => res.json())
-    // .then((res) => {
-    //   if (res.errors) {
-    //     console.log(res.errors)
-    //   } else if (res.isEmailSend) {
-    //     //handle success
-    //     alert("Should have sent!")
-    //     setFields({
-    //       name: Object.create(field),
-    //       email: Object.create(field),
-    //       company: Object.create(field),
-    //       subject: Object.create(field),
-    //       message: Object.create(field),
-    //     });
-    //     setErrors({});
-    //   }
-    //   return res;
-    // })
-    // .catch(err => alert(err.message))
+    /*fetch('https://us-central1-portfolio-contact-45fe6.cloudfunctions.net/app/api/contacts', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json'
+      }, 
+      body: JSON.stringify({
+        name: fields.name.value,
+        email: fields.email.value,
+        company: fields.company.value,
+        subject: fields.subject.value,
+        message: fields.message.value,
+      })
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.errors) {
+        console.log(res.errors)
+      } else if (res.isEmailSend) {
+        alert("Should have sent!")
+        setFields({
+          name: Object.create(field),
+          email: Object.create(field),
+          company: Object.create(field),
+          subject: Object.create(field),
+          message: Object.create(field),
+        });
+        setErrors({});
+      }
+      return res;
+    })
+    .catch(err => alert(err.message))*/
 
   }
 

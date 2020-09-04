@@ -5,7 +5,7 @@
  * animejs.com
  */
 
-// Defaults
+/*Defaults*/
 
 var defaultInstanceSettings = {
   update: null,
@@ -32,14 +32,14 @@ var defaultTweenSettings = {
 
 var validTransforms = ['translateX', 'translateY', 'translateZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'perspective', 'matrix', 'matrix3d'];
 
-// Caching
+/*Caching*/
 
 var cache = {
   CSS: {},
   springs: {}
 };
 
-// Utils
+/*Utils*/
 
 function minMax(val, min, max) {
   return Math.min(Math.max(val, min), max);
@@ -70,14 +70,14 @@ var is = {
   key: function (a) { return !defaultInstanceSettings.hasOwnProperty(a) && !defaultTweenSettings.hasOwnProperty(a) && a !== 'targets' && a !== 'keyframes'; }
 };
 
-// Easings
+/*Easings*/
 
 function parseEasingParameters(string) {
   var match = /\(([^)]+)\)/.exec(string);
   return match ? match[1].split(',').map(function (p) { return parseFloat(p); }) : [];
 }
 
-// Spring solver inspired by Webkit Copyright © 2016 Apple Inc. All rights reserved. https://webkit.org/demos/spring/spring.js
+/*Spring solver inspired by Webkit Copyright © 2016 Apple Inc. All rights reserved. https://webkit.org/demos/spring/spring.js*/
 
 function spring(string, duration) {
 
@@ -127,7 +127,7 @@ function spring(string, duration) {
 
 }
 
-// Basic steps easing implementation https://developer.mozilla.org/fr/docs/Web/CSS/transition-timing-function
+/*Basic steps easing implementation https://developer.mozilla.org/fr/docs/Web/CSS/transition-timing-function*/
 
 function steps(steps) {
   if ( steps === void 0 ) steps = 10;
@@ -135,7 +135,7 @@ function steps(steps) {
   return function (t) { return Math.ceil((minMax(t, 0.000001, 1)) * steps) * (1 / steps); };
 }
 
-// BezierEasing https://github.com/gre/bezier-easing
+/*BezierEasing https://github.com/gre/bezier-easing*/
 
 var bezier = (function () {
 
@@ -220,7 +220,7 @@ var bezier = (function () {
 
 var penner = (function () {
 
-  // Based on jQuery UI's implemenation of easing equations from Robert Penner (http://www.robertpenner.com/easing)
+  /*Based on jQuery UI's implemenation of easing equations from Robert Penner (http://www.robertpenner.com/easing)*/
 
   var eases = { linear: function () { return function (t) { return t; }; } };
 
@@ -277,7 +277,7 @@ function parseEasings(easing, duration) {
   }
 }
 
-// Strings
+/*Strings*/
 
 function selectString(str) {
   try {
@@ -288,7 +288,7 @@ function selectString(str) {
   }
 }
 
-// Arrays
+/*Arrays*/
 
 function filterArray(arr, callback) {
   var len = arr.length;
@@ -320,7 +320,7 @@ function arrayContains(arr, val) {
   return arr.some(function (a) { return a === val; });
 }
 
-// Objects
+/*Objects*/
 
 function cloneObject(o) {
   var clone = {};
@@ -340,7 +340,7 @@ function mergeObjects(o1, o2) {
   return o;
 }
 
-// Colors
+/*Colors*/
 
 function rgbToRgba(rgbValue) {
   var rgb = /rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(rgbValue);
@@ -390,7 +390,7 @@ function colorToRgb(val) {
   if (is.hsl(val)) { return hslToRgba(val); }
 }
 
-// Units
+/*Units*/
 
 function getUnit(val) {
   var split = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(val);
@@ -402,7 +402,7 @@ function getTransformUnit(propName) {
   if (stringContains(propName, 'rotate') || stringContains(propName, 'skew')) { return 'deg'; }
 }
 
-// Values
+/*Values*/
 
 function getFunctionValue(val, animatable) {
   if (!is.fnc(val)) { return val; }
@@ -496,8 +496,8 @@ function validateValue(val, unit) {
   return unitLess;
 }
 
-// getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
-// adapted from https://gist.github.com/SebLambla/3e0550c496c236709744
+/*getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
+ *adapted from https://gist.github.com/SebLambla/3e0550c496c236709744*/
 
 function getDistance(p1, p2) {
   return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
@@ -535,7 +535,7 @@ function getPolygonLength(el) {
   return getPolylineLength(el) + getDistance(points.getItem(points.numberOfItems - 1), points.getItem(0));
 }
 
-// Path animation
+/*Path animation*/
 
 function getTotalLength(el) {
   if (el.getTotalLength) { return el.getTotalLength(); }
@@ -554,7 +554,7 @@ function setDashoffset(el) {
   return pathLength;
 }
 
-// Motion path
+/*Motion path*/
 
 function getParentSvgEl(el) {
   var parentEl = el.parentNode;
@@ -614,12 +614,11 @@ function getPathProgress(path, progress) {
   }
 }
 
-// Decompose value
+/*Decompose value*/
 
 function decomposeValue(val, unit) {
-  // const rgx = /-?\d*\.?\d+/g; // handles basic numbers
-  // const rgx = /[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g; // handles exponents notation
-  var rgx = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g; // handles exponents notation
+  /*handles exponents notation*/
+  var rgx = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g;
   var value = validateValue((is.pth(val) ? val.totalLength : val), unit) + '';
   return {
     original: value,
@@ -628,7 +627,7 @@ function decomposeValue(val, unit) {
   }
 }
 
-// Animatables
+/*Animatables*/
 
 function parseTargets(targets) {
   var targetsArray = targets ? (flattenArray(is.arr(targets) ? targets.map(toArray) : toArray(targets))) : [];
@@ -642,29 +641,29 @@ function getAnimatables(targets) {
   });
 }
 
-// Properties
+/*Properties*/
 
 function normalizePropertyTweens(prop, tweenSettings) {
   var settings = cloneObject(tweenSettings);
-  // Override duration if easing is a spring
+  /*Override duration if easing is a spring*/
   if (/^spring/.test(settings.easing)) { settings.duration = spring(settings.easing); }
   if (is.arr(prop)) {
     var l = prop.length;
     var isFromTo = (l === 2 && !is.obj(prop[0]));
     if (!isFromTo) {
-      // Duration divided by the number of tweens
+      /*Duration divided by the number of tweens*/
       if (!is.fnc(tweenSettings.duration)) { settings.duration = tweenSettings.duration / l; }
     } else {
-      // Transform [from, to] values shorthand to a valid tween value
+      /*Transform [from, to] values shorthand to a valid tween value*/
       prop = {value: prop};
     }
   }
   var propArray = is.arr(prop) ? prop : [prop];
   return propArray.map(function (v, i) {
     var obj = (is.obj(v) && !is.pth(v)) ? v : {value: v};
-    // Default delay value should only be applied to the first tween
+    /*Default delay value should only be applied to the first tween*/
     if (is.und(obj.delay)) { obj.delay = !i ? tweenSettings.delay : 0; }
-    // Default endDelay value should only be applied to the last tween
+    /*Default endDelay value should only be applied to the last tween*/
     if (is.und(obj.endDelay)) { obj.endDelay = i === propArray.length - 1 ? tweenSettings.endDelay : 0; }
     return obj;
   }).map(function (k) { return mergeObjects(k, settings); });
@@ -709,7 +708,7 @@ function getProperties(tweenSettings, params) {
   return properties;
 }
 
-// Tweens
+/*Tweens*/
 
 function normalizeTweenValues(tween, animatable) {
   var t = {};
@@ -752,7 +751,7 @@ function normalizeTweens(prop, animatable) {
   });
 }
 
-// Tween progress
+/*Tween progress*/
 
 var setProgressValue = {
   css: function (t, p, v) { return t.style[p] = v; },
@@ -768,7 +767,7 @@ var setProgressValue = {
   }
 };
 
-// Set Value helper
+/*Set Value helper*/
 
 function setTargetsValue(targets, properties) {
   var animatables = getAnimatables(targets);
@@ -786,7 +785,7 @@ function setTargetsValue(targets, properties) {
   });
 }
 
-// Animations
+/*Animations*/
 
 function createAnimation(animatable, prop) {
   var animType = getAnimationType(animatable.target, prop.name);
@@ -813,7 +812,7 @@ function getAnimations(animatables, properties) {
   })), function (a) { return !is.und(a); });
 }
 
-// Create Instance
+/*Create Instance*/
 
 function getInstanceTimings(animations, tweenSettings) {
   var animLength = animations.length;
@@ -847,7 +846,7 @@ function createNewInstance(params) {
   });
 }
 
-// Core
+/*Core*/
 
 var activeInstances = [];
 var pausedInstances = [];
@@ -896,7 +895,7 @@ if (typeof document !== 'undefined') {
   document.addEventListener('visibilitychange', handleVisibilityChange);
 }
 
-// Public Instance
+/*Public Instance*/
 
 function anime(params) {
   if ( params === void 0 ) params = {};
@@ -955,7 +954,7 @@ function anime(params) {
       var tweens = anim.tweens;
       var tweenLength = tweens.length - 1;
       var tween = tweens[tweenLength];
-      // Only check for keyframes if there is more than one tween
+      /*Only check for keyframes if there is more than one tween*/
       if (tweenLength) { tween = filterArray(tweens, function (t) { return (insTime < t.end); })[0] || tween; }
       var elapsed = minMax(insTime - tween.start - tween.delay, 0, tween.duration) / tween.duration;
       var eased = isNaN(elapsed) ? 1 : tween.easing(elapsed);
@@ -980,7 +979,7 @@ function anime(params) {
         }
         numbers.push(value);
       }
-      // Manual Array.reduce for better performances
+      /*Manual Array.reduce for better performances*/
       var stringsLength = strings.length;
       if (!stringsLength) {
         progress = numbers[0];
@@ -1100,7 +1099,7 @@ function anime(params) {
     setAnimationsProgress(instance.reversed ? instance.duration : 0);
   };
 
-  // Set Value helper
+  /*Set Value helper*/
 
   instance.set = function(targets, properties) {
     setTargetsValue(targets, properties);
@@ -1150,7 +1149,7 @@ function anime(params) {
 
 }
 
-// Remove targets from animation
+/*Remove targets from animation*/
 
 function removeTargetsFromAnimations(targetsArray, animations) {
   for (var a = animations.length; a--;) {
@@ -1177,7 +1176,7 @@ function removeTargets(targets) {
   }
 }
 
-// Stagger helpers
+/*Stagger helpers*/
 
 function stagger(val, params) {
   if ( params === void 0 ) params = {};
@@ -1227,7 +1226,7 @@ function stagger(val, params) {
   }
 }
 
-// Timeline
+/*Timeline*/
 
 function timeline(params) {
   if ( params === void 0 ) params = {};

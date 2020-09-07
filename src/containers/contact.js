@@ -101,21 +101,8 @@ export default function Contact () {
   const handleSubmit = (e) => {
     e.preventDefault();
     setBtnState(btnStates.loading);
-    
-    setTimeout(() => {
-      setBtnState(btnStates.submitted);
-      setFields({
-        name: Object.create(field),
-        email: Object.create(field),
-        company: Object.create(field),
-        subject: Object.create(field),
-        message: Object.create(field),
-      });
 
-      setErrors({});
-    }, 3000)
-
-    /*fetch('https://us-central1-portfolio-contact-45fe6.cloudfunctions.net/app/api/contacts', {
+    fetch('https://us-central1-portfolio-contact-45fe6.cloudfunctions.net/app/api/contacts', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -132,21 +119,34 @@ export default function Contact () {
     .then((res) => res.json())
     .then((res) => {
       if (res.errors) {
-        console.log(res.errors)
+        throw new Error(res.errors)
       } else if (res.isEmailSend) {
-        alert("Should have sent!")
-        setFields({
-          name: Object.create(field),
-          email: Object.create(field),
-          company: Object.create(field),
-          subject: Object.create(field),
-          message: Object.create(field),
-        });
-        setErrors({});
+        setBtnState(btnStates.submitted);
       }
       return res;
     })
-    .catch(err => alert(err.message))*/
+    .catch(err => handleError(err))
+    .finally(() => {
+      setFields({
+        name: Object.create(field),
+        email: Object.create(field),
+        company: Object.create(field),
+        subject: Object.create(field),
+        message: Object.create(field),
+      });
+      setErrors({});
+    })
+
+  }
+
+  const handleError = (err) => {
+    setBtnState(btnStates.error);
+    setErrors(prevErrors => {
+      return {
+        ...prevErrors,
+        results: err
+      }
+    })
 
   }
 
@@ -241,7 +241,7 @@ export default function Contact () {
           {btnState === btnStates.loading && <button type="button" className="standard loading">Loading...</button>}
           {btnState === btnStates.submitted && <button type="button" className="standard good">Message Sent! &#10004;</button>}
           {btnState === btnStates.error && <button type="button" className="standard bad">Error</button>}
-          
+          {errors.results && <small className="bad">Something went wrong. Please try again later.</small>}
         </form>
         <div className="separator">
           <div className="l"></div>
@@ -254,7 +254,7 @@ export default function Contact () {
           </header>
           <div className="icons">
             <a className="git" href="https://github.com/heykc" target="_blank"><GitHub /></a>
-            <a className="and" href="#"><Android /></a>
+            <a className="and" href="https://play.google.com/store/apps/developer?id=Coffinated+Games"><Android /></a>
             <a className="itch" href="https://coffinatedgames.itch.io/" target="_blank"><Itch /></a>
             <a className="inst" href="https://www.instagram.com/coffinatedgames/" target="_blank"><Instagram /></a>
           </div>

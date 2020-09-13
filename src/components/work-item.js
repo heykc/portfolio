@@ -31,7 +31,7 @@ export default function WorkItem(props) {
         <article className="col row c">
           <div className={`circ ${props.color}`}></div>
           <header>
-            {props.wip && <WIP />}
+            {info.status === "wip" && <WIP />}
             <h3>{info.title ? info.title : ""}</h3>
           </header>
           <p>

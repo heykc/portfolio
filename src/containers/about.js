@@ -73,7 +73,7 @@ export default function About () {
           rev
           header="1 Part Developer"
           text={`I specialize in Vanilla JavaScript and ReactJS. I've also 
-            worked on projects using Vue.js, Knockout.js, .NET Framework
+            worked on projects using Vue.js, Knockout.js, .NET Framework,
             Firebase, MongoDB, and MSSQL.
           `}
           img={<DevSvg isShowing={devShowing} />}

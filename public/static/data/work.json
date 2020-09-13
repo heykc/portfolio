@@ -2,13 +2,13 @@
   {
     "slug": "mutt_run",
     "title": "Mutt & Run",
-    "desc": "Sole developer/designer on an endless runner mobile game out on the Google Play Store. Play as a dog running through fields of trees in order to grab as many treats as you can!",
+    "desc": "Solo project where I designed, developed, and released and endless runner mobile game in just 30 days. Play as a dog running through fields of trees in order to grab as many treats as you can!",
     "img": "/work/mutt_run.png",
     "links": [
       {
-        "link": "https://coffinatedgames.itch.io/mutt-n-run",
+        "link": "https://play.google.com/store/apps/details?id=com.coffinatedgames.muttrun",
         "icon": "itch",
-        "text": "view game"
+        "text": "Download game"
       }
     ]
   },
@@ -17,6 +17,7 @@
     "title": "Dungeon DOM",
     "desc": "Co-Developing a rogue-lite dungeon crawler. The app is built in Vanilla JS using the Web Component API. I've been in charge of most of the data handling and game logic using up-to-date ES6 standards. I also built a custom suite of icons used in-game.",
     "img": "/work/dungeon_dom.png",
+    "status": "wip",
     "links": [
       {
         "link": "https://github.com/heykc/READMEDungeon",
@@ -34,7 +35,7 @@
       {
         "link": "https://www.bradsdeals.com/guides/summer-sales",
         "icon": "web",
-        "text": "view Live"
+        "text": "view Live Site"
       }
     ]
   },
@@ -47,7 +48,7 @@
       {
         "link": "http://artediapp.com/",
         "icon": "web",
-        "text": "View Live"
+        "text": "View App"
       }
     ]
   }

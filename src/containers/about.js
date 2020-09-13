@@ -61,10 +61,10 @@ export default function About () {
           isShowing={helloShowing}
           color="blue"
           header="Hey, I'm Keith!"
-          text={`I'm a web developer and designer with over 4 years of
+          text={`I'm a front end engineer with over 6 years of
           experience. I've built web tools for a game company, brought
           an entire warehouse into the 21st century, and even helped a
-          diving school take their iPads underwater.`}
+          scientific diving school bring their classrooms underwater.`}
           img={<HelloSvg isShowing={helloShowing} />}
         />
         <Hero
@@ -72,9 +72,10 @@ export default function About () {
           color="red" 
           rev
           header="1 Part Developer"
-          text={`I specialize in Vanilla JavaScript and ReactJS. I've worked 
-          predominantly in an agile framework with experience using Azure 
-          and Jira for project management and bug reporting.`}
+          text={`I specialize in Vanilla JavaScript and ReactJS. I've also 
+            worked on projects using Vue.js, Knockout.js, .NET Framework
+            Firebase, MongoDB, and MSSQL.
+          `}
           img={<DevSvg isShowing={devShowing} />}
         >
         </Hero>

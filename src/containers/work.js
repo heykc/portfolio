@@ -4,7 +4,7 @@ import WorkItem from '../components/work-item';
 
 export default function Work () {
   const observer = React.useRef(null)
-  const [dungeon, setDungeon] = React.useState(false);
+  const [word, setWord] = React.useState(false);
   const [bd, setBd] = React.useState(false);
   const [mutt, setMutt] = React.useState(false);
   const [artedi, setArtedi] = React.useState(false);
@@ -12,13 +12,13 @@ export default function Work () {
   const callback = (entries) => {
     entries.forEach((entry) => {
       if (entry.intersectionRatio > .4) {
-        if (entry.target.querySelector("#dungeon_dom")) setDungeon(true);
+        if (entry.target.querySelector("#whats_the_word")) setWord(true);
         else if (entry.target.querySelector("#bd_shopping_guide")) setBd(true);
         else if (entry.target.querySelector("#mutt_run")) setMutt(true);
         else if (entry.target.querySelector("#artedi_app")) setArtedi(true);
       }else {
         
-        if (entry.target.querySelector("#dungeon_dom")) setDungeon(false);
+        if (entry.target.querySelector("#whats_the_word")) setWord(false);
         else if (entry.target.querySelector("#bd_shopping_guide")) setBd(false);
         else if (entry.target.querySelector("#mutt_run")) setMutt(false);
         else if (entry.target.querySelector("#artedi_app")) setArtedi(false);
@@ -56,7 +56,7 @@ export default function Work () {
     <main id="content" className={"container row c center gutters"}>
       <div className={"container lg row c center"}>
         <div style={{marginTop: '6rem'}}></div>
-        <WorkItem color="blue" slug="whats_the_word" isShowing={observer.current ? dungeon : true} />
+        <WorkItem color="blue" slug="whats_the_word" isShowing={observer.current ? word : true} />
         <WorkItem color="gold" slug="bd_shopping_guide" isShowing={observer.current ? bd : true} rev/>
         <WorkItem color="green" slug="mutt_run" isShowing={observer.current ? mutt : true}/>
         <WorkItem color="blue" slug="artedi_app" isShowing={observer.current ? artedi : true} rev/>

@@ -61,9 +61,11 @@ export default function About () {
           isShowing={helloShowing}
           color="blue"
           header="Hey, I'm Keith!"
-          text={`I'm a front end engineer with over 6 years of
-          experience. I've built web tools for a game company, brought
-          an entire warehouse into the 21st century, and even helped a
+          text={`I'm a UI engineer with over 6 years of
+          experience. I currently lead a small but mighty group
+          of frontend engineers at ThreeFlow. I've previously
+          built web tools for a game company, brought an entire
+          warehouse into the 21st century, and have even helped a
           scientific diving school bring their classrooms underwater.`}
           img={<HelloSvg isShowing={helloShowing} />}
         />

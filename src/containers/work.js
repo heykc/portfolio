@@ -56,7 +56,7 @@ export default function Work () {
     <main id="content" className={"container row c center gutters"}>
       <div className={"container lg row c center"}>
         <div style={{marginTop: '6rem'}}></div>
-        <WorkItem color="blue" slug="dungeon_dom" isShowing={observer.current ? dungeon : true} wip/>
+        <WorkItem color="blue" slug="whats_the_word" isShowing={observer.current ? dungeon : true} />
         <WorkItem color="gold" slug="bd_shopping_guide" isShowing={observer.current ? bd : true} rev/>
         <WorkItem color="green" slug="mutt_run" isShowing={observer.current ? mutt : true}/>
         <WorkItem color="blue" slug="artedi_app" isShowing={observer.current ? artedi : true} rev/>

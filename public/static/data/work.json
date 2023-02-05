@@ -13,14 +13,18 @@
     ]
   },
   {
-    "slug": "dungeon_dom",
-    "title": "Dungeon DOM",
-    "desc": "Co-Developing a rogue-lite dungeon crawler. The app is built in Vanilla JS using the Web Component API. I've been in charge of most of the data handling and game logic using up-to-date ES6 standards. I also built a custom suite of icons used in-game.",
-    "img": "/work/dungeon_dom.png",
-    "status": "wip",
+    "slug": "whats_the_word",
+    "title": "What's the Word?",
+    "desc": "I built this game to explore new and unfamiliar tech such as SvelteKit 1.0, TailwindCSS, and Redis via Upstash. It was a fun project to play around with during the holiday, and I still play it with friends and co-workers daily.",
+    "img": "/work/whats_the_word.png",
     "links": [
       {
-        "link": "https://github.com/heykc/READMEDungeon",
+        "link": "https://word.heykc.co",
+        "icon": "web",
+        "text": "Play now"
+      },
+      {
+        "link": "https://github.com/heykc/word-app",
         "icon": "github",
         "text": "View Code"
       }

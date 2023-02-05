@@ -2,11 +2,11 @@
   {
     "slug": "mutt_run",
     "title": "Mutt & Run",
-    "desc": "Solo project where I designed, developed, and released and endless runner mobile game in just 30 days. Play as a dog running through fields of trees in order to grab as many treats as you can!",
+    "desc": "I made this game on my own to test my time management, art, and development skills. It's an endless runner mobile game that I gave myself just 30 days to make. Play as a dog running through fields of trees in order to grab as many treats as you can!",
     "img": "/work/mutt_run.png",
     "links": [
       {
-        "link": "https://play.google.com/store/apps/details?id=com.coffinatedgames.muttrun",
+        "link": "https://coffinatedgames.itch.io/mutt-n-run",
         "icon": "itch",
         "text": "Download game"
       }
@@ -26,7 +26,7 @@
       {
         "link": "https://github.com/heykc/word-app",
         "icon": "github",
-        "text": "View Code"
+        "text": "View code"
       }
     ]
   },
@@ -39,7 +39,7 @@
       {
         "link": "https://www.bradsdeals.com/guides/summer-sales",
         "icon": "web",
-        "text": "view Live Site"
+        "text": "view live site"
       }
     ]
   },
@@ -52,7 +52,7 @@
       {
         "link": "http://artediapp.com/",
         "icon": "web",
-        "text": "View App"
+        "text": "View app"
       }
     ]
   }

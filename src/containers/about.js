@@ -72,10 +72,9 @@ export default function About () {
           color="red" 
           rev
           header="1 Part Developer"
-          text={`I specialize in Vanilla JavaScript and ReactJS. I've also 
-            worked on projects using Vue.js, Knockout.js, .NET Framework,
-            Firebase, MongoDB, and MSSQL.
-          `}
+          text={`I specialize in JavaScript and Javascript frameworks.
+          I'm currently working in Vue 2.7 professionally and Sveltekit with
+          personal projects, but have worked with React, and C#/.NET in the past.`}
           img={<DevSvg isShowing={devShowing} />}
         >
         </Hero>
